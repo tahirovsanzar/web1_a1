@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact details and feedback form for Experience Fitness Astana.">
+  <meta name="author" content="Student 3">
+  <title>Experience Fitness Astana | Contact</title>
+</head>
+<body>
+<header><p>Experience Fitness Astana</p><nav aria-label="Main navigation"><ul>
+  <li><a href="index.html">Home</a></li><li><a href="colophon.html">Colophon</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="services.html">Services</a></li><li><a href="booking.html">Booking</a></li><li><a href="trainers.html">Training</a></li><li><a href="contact.html">Contact</a></li>
+</ul></nav></header>
+<main>
+  <h1>Contact and feedback</h1>
+  <section>
+    <h2>Reach the club</h2>
+    <p>For current information about membership, classes and visits, contact the branch directly. The listed Imanbayeva location is Sholpan Imanbayeva Street 8/2, fourth floor, Astana. Its listed phone number is <a href="tel:+77783457405">+7‒778‒345‒74‒05</a>. The second listed location is Sanjar Asfendiyarov Street 6, Astana. Confirm the current telephone number, opening time and class schedule with the branch before you travel.</p>
+    <p>You can also visit the club’s <a href="https://www.instagram.com/experience.fitness.kz/" target="_blank" rel="noopener noreferrer">Instagram page</a> for updates. A <a href="mailto:info@example.com">mailto link in this student example</a> opens an email application, but you must replace it with a verified club email address if one is provided by the business. <small>This site is a classroom project and is not the official Experience Fitness website.</small></p>
+    <!-- The feedback form is a local demonstration and has no server-side processing. -->
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Feedback form</legend>
+        <p><label for="contact-name">Full name</label><br><input id="contact-name" name="name" type="text" placeholder="Your full name" required></p>
+        <p><label for="contact-email">Email</label><br><input id="contact-email" name="email" type="email" placeholder="name@example.com" required></p>
+        <p><label for="contact-phone">Phone</label><br><input id="contact-phone" name="phone" type="tel" placeholder="+7 700 000 00 00" required></p>
+        <p><label for="contact-visits">Number of visits</label><br><input id="contact-visits" name="visits" type="number" min="0" max="100" required></p>
+        <p><label for="contact-date">Visit date</label><br><input id="contact-date" name="date" type="date" required></p>
+        <p>Feedback type<br><label><input type="radio" name="feedback-type" value="question" required> Question</label> <label><input type="radio" name="feedback-type" value="comment"> Comment</label></p>
+        <p><label for="contact-branch">Branch visited</label><br><select id="contact-branch" name="branch"><option>Imanbayeva 8/2</option><option>Asfendiyarov 6</option></select></p>
+        <p><label for="contact-message">Message</label><br><textarea id="contact-message" name="message" rows="5" cols="40" placeholder="Write your feedback here" required></textarea></p>
+        <p><label><input type="checkbox" name="permission" required> I give permission to contact me about this message.</label></p>
+        <p><button type="submit">Send feedback</button> <button type="reset">Clear form</button></p>
+      </fieldset>
+    </form>
+  </section>
+</main>
+<footer><p>&copy; 2026 Student Project | Astana, Kazakhstan</p></footer>
+</body>
+</html>

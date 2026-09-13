@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Request a training or group-class appointment at Experience Fitness Astana.">
+  <meta name="author" content="Student 2">
+  <title>Experience Fitness Astana | Training Booking</title>
+</head>
+<body>
+<header><p>Experience Fitness Astana</p><nav aria-label="Main navigation"><ul>
+  <li><a href="index.html">Home</a></li><li><a href="colophon.html">Colophon</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="services.html">Services</a></li><li><a href="booking.html">Booking</a></li><li><a href="trainers.html">Training</a></li><li><a href="contact.html">Contact</a></li>
+</ul></nav></header>
+<main>
+  <h1>Request a training appointment</h1>
+  <section>
+    <h2>Plan your first session</h2>
+    <p>This request form helps a visitor organize the details needed for a training appointment. It is useful to state whether you want a gym introduction, a personal training session or a group class. Tell the club about any health limitations before beginning an activity. A qualified professional can then advise whether the selected class and intensity are appropriate.</p>
+    <p>Choose a date and branch that work for you, but remember that a submitted request is not a confirmed reservation. Reception must check trainer availability and the current club timetable. If you are new to exercise, begin at a comfortable level. A short, safe session is a better foundation than trying to complete a difficult program on day one.</p>
+    <!-- This form demonstrates HTML controls; it has no live server and sends no booking. -->
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Booking request</legend>
+        <p><label for="book-name">Full name</label><br><input id="book-name" name="name" type="text" placeholder="Your full name" required></p>
+        <p><label for="book-email">Email</label><br><input id="book-email" name="email" type="email" placeholder="name@example.com" required></p>
+        <p><label for="book-phone">Phone</label><br><input id="book-phone" name="phone" type="tel" placeholder="+7 700 000 00 00" required></p>
+        <p><label for="book-age">Age</label><br><input id="book-age" name="age" type="number" min="14" max="100" required></p>
+        <p><label for="book-date">Preferred date</label><br><input id="book-date" name="date" type="date" required></p>
+        <p>Training type<br><label><input type="radio" name="type" value="intro" required> Gym introduction</label> <label><input type="radio" name="type" value="personal"> Personal training</label> <label><input type="radio" name="type" value="group"> Group class</label></p>
+        <p><label for="book-branch">Branch</label><br><select id="book-branch" name="branch"><option>Imanbayeva 8/2</option><option>Asfendiyarov 6</option></select></p>
+        <p><label for="book-notes">Goals or notes</label><br><textarea id="book-notes" name="notes" rows="4" cols="40" placeholder="For example: beginner, strength goal, preferred class"></textarea></p>
+        <p><label><input type="checkbox" name="terms" required> I understand this is only a request, not a confirmed booking.</label></p>
+        <p><button type="submit">Request booking</button> <button type="reset">Clear form</button></p>
+      </fieldset>
+    </form>
+  </section>
+</main>
+<footer><p>&copy; 2026 Student Project | <a href="tel:+77783457405">Call the club</a></p></footer>
+</body>
+</html>
