@@ -1,0 +1,167 @@
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #121212;
+  color: #FFFFFF;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  color: #FFD700;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #FFD700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+
+header {
+  background-color: #1E1E1E;
+  padding: 20px;
+  border-bottom: 2px solid #FFD700;
+  text-align: center;
+}
+
+header p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+
+fieldset {
+  border: 1px solid #444;
+  padding: 25px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+legend {
+  color: #FFD700;
+  font-weight: bold;
+  padding: 0 10px;
+  font-size: 1.2rem;
+}
+
+label {
+  color: #AAAAAA;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+  border: 1px solid #444;
+  padding: 12px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-family: inherit;
+  width: 100%;
+  max-width: 600px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #FFD700;
+  outline: none;
+}
+
+
+button[type="submit"],
+button[type="reset"] {
+  background-color: #FFD700;
+  color: #000000;
+  border: none;
+  padding: 12px 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 15px;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover,
+button[type="reset"]:hover {
+  background-color: #FFFFFF;
+}
+
+
+footer {
+  background-color: #1E1E1E;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #AAAAAA;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  color: #FFD700;
+}
+
+.social-links svg {
+  stroke: currentColor;
+}
