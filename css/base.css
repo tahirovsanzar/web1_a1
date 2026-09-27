@@ -11,7 +11,7 @@ body {
   color: #FFFFFF;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 2;
   letter-spacing: 0.5px;
 }
 
@@ -165,3 +165,16 @@ footer {
 .social-links svg {
   stroke: currentColor;
 }
+header h1,
+header p {
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+header h1:hover,
+header p:hover {
+  transform: scale(1.08);
+  color: #FFFFFF;
+  cursor: default;
+}
+

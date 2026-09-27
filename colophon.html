@@ -1,40 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="How the Experience Fitness student website was made.">
-  <meta name="author" content="Student 1">
-  <title>Experience Fitness Astana | Colophon</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colophon - Experience Fitness</title>
+  <!-- Asosiy dizayn va Bekzhatning maxsus CSS fayli ulanishi -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/bekzhat.css">
 </head>
 <body>
 <header>
-  <p>Experience Fitness Astana</p>
-  <nav aria-label="Main navigation"><ul>
-    <li><a href="index.html">Home</a></li><li><a href="colophon.html">Colophon</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="services.html">Services</a></li><li><a href="booking.html">Booking</a></li><li><a href="trainers.html">Training</a></li><li><a href="contact.html">Contact</a></li>
-  </ul></nav>
+  <h1>Experience Fitness</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="colophon.html" class="active">Colophon</a></li>
+    </ul>
+  </nav>
 </header>
-<main style="position: relative; min-height: 80vh;">
-  <div class="center-absolute">
-    <h1>How this website was made</h1>
-    <p>A demonstration of HTML and CSS principles.</p>
-  </div>
 
-  <section style="margin-top: 150px;">
-    <h2>Project method</h2>
-    <p>This website was built as a set of local HTML files. Every page uses the same semantic structure: a <code>header</code> for the site identity, a <code>nav</code> list for links, <code>main</code> for page content and a <code>footer</code> for contact details. The browser reads the document type declaration first, then interprets the HTML elements and creates the page shown on screen. No CSS, JavaScript, framework or template is used in this version.</p>
-    <p>We chose <code>section</code> to group related information, <code>article</code> for independent pieces such as class descriptions, and <code>aside</code> for supporting advice. These elements explain the meaning of the content better than a generic <code>div</code>. When a visitor presses a submit button, the browser prepares the form values according to the <code>method</code> and <code>action</code> attributes. At present the forms do not send data because this project has no server-side program.</p>
+<main>
+  <!-- Kontentni markazga joylash uchun oddiy inline CSS -->
+  <section style="max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.8;">
+    <h2 style="color: #FFD700; margin-bottom: 20px;">Project Method & Validation</h2>
 
-    <pre><code id="colophon-code">&lt;main&gt;
+    <p>This website was built as a set of local HTML files. Every page uses the same semantic structure: a <code>&lt;header&gt;</code> for the site identity, a <code>&lt;nav&gt;</code> list for links, <code>&lt;main&gt;</code> for page content, and a <code>&lt;footer&gt;</code> for contact details. The browser reads the document type declaration first, then interprets the HTML elements and creates the page shown on screen. No external CSS frameworks, JavaScript, or templates are used in this version. The design is built entirely with custom CSS.</p>
+
+    <p>We chose <code>&lt;section&gt;</code> to group related information, <code>&lt;article&gt;</code> for independent pieces such as class descriptions, and <code>&lt;aside&gt;</code> for supporting advice. These elements explain the meaning of the content better than a generic <code>&lt;div&gt;</code>. A basic structure in our project looks like this:</p>
+
+    <!-- CSS Checklist'da ko'rsatilgan maxsus ID qo'llanildi -->
+    <pre id="colophon-code"><code>
+&lt;main&gt;
   &lt;h1&gt;Page title&lt;/h1&gt;
   &lt;section&gt;Useful content&lt;/section&gt;
-&lt;/main&gt;</code></pre>
-    <p>Use <kbd>Ctrl</kbd> + <kbd>R</kbd> to refresh a local page. A successful validation result may say <samp>Document checking completed. No errors found.</samp></p>
+&lt;/main&gt;
+            </code></pre>
+
+    <p style="margin-top: 20px;">During development, we load the files in a browser and use <strong>Ctrl + R</strong> to refresh a local page and view updates. Furthermore, all pages have been tested for correct W3C HTML5 semantics. A successful validation result on our pages confirms the code quality, stating: <em>"Document checking completed. No errors found."</em> At present, when a visitor presses a submit button, the forms do not send data because this project has no server-side program.</p>
   </section>
 </main>
-<footer><p>Contact:<a href="tel:+77783457405">+7‒778‒345‒74‒05</a> | &copy; 2026 Student Project</p></footer>
+
+<footer>
+  <p>Contact: <a href="tel:+77783457405">+7‒778‒345‒74‒05</a> | Astana, Kazakhstan | &copy; 2026 Student Project</p>
+  <ul class="social-links">
+    <li>
+      <a href="https://www.instagram.com/experience.fitness.kz/" target="_blank" rel="noopener noreferrer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://go.2gis.com/pCgUS" target="_blank" rel="noopener noreferrer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        2GIS
+      </a>
+    </li>
+  </ul>
+</footer>
 </body>
 </html>
