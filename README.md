@@ -5,7 +5,7 @@ A front-end web development project creating a dark-themed fitness club website 
 ## Team Members
 * Sanzharbek Takhirov (index.html, about.html, gallery.html)
 * Meyirzhan Zhaumytbay (services.html, booking.html)
-* Bekzhat Kaliev (trainers.html, contact.html, colophon.html)
+* Bekzat Kaliev (trainers.html, contact.html, colophon.html)
 
 ## Technologies Used
 * Semantic HTML5
