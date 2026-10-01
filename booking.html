@@ -4,44 +4,137 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Request a training or group-class appointment at Experience Fitness Astana.">
-  <meta name="author" content="Student 2">
+  <meta name="author" content="Meyirzhan">
   <title>Experience Fitness Astana | Training Booking</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/meyirzhan.css">
 </head>
-<body>
-<header><p>Experience Fitness Astana</p><nav aria-label="Main navigation"><ul>
-  <li><a href="index.html">Home</a></li><li><a href="colophon.html">Colophon</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="services.html">Services</a></li><li><a href="booking.html">Booking</a></li><li><a href="trainers.html">Training</a></li><li><a href="contact.html">Contact</a></li>
-</ul></nav></header>
-<main>
-  <h1>Request a training appointment</h1>
-  <section class="relative-container form-wrapper">
-    <span class="absolute-badge">NEW</span>
+<body class="bg-dark text-light">
 
-    <div>
-      <h2>Plan your first session</h2>
-      <p>This request form helps a visitor organize the details needed for a training appointment. It is useful to state whether you want a gym introduction, a personal training session or a group class. Tell the club about any health limitations before beginning an activity. A qualified professional can then advise whether the selected class and intensity are appropriate.</p>
-      <p>Choose a date and branch that work for you, but remember that a submitted request is not a confirmed reservation. Reception must check trainer availability and the current club timetable. If you are new to exercise, begin at a comfortable level. A short, safe session is a better foundation than trying to complete a difficult program on day one.</p>
-
-      <form id="booking-form" action="#" method="post">
-        <fieldset>
-          <legend>Booking request</legend>
-          <p><label for="book-name">Full name</label><br><input id="book-name" name="name" type="text" placeholder="Your full name" required></p>
-          <p><label for="book-email">Email</label><br><input id="book-email" name="email" type="email" placeholder="name@example.com" required></p>
-          <p><label for="book-phone">Phone</label><br><input id="book-phone" name="phone" type="tel" placeholder="+7 700 000 00 00" required></p>
-          <p><label for="book-age">Age</label><br><input id="book-age" name="age" type="number" min="14" max="100" required></p>
-          <p><label for="book-date">Preferred date</label><br><input id="book-date" name="date" type="date" required></p>
-          <p>Training type<br><label><input type="radio" name="type" value="intro" required> Gym introduction</label> <label><input type="radio" name="type" value="personal"> Personal training</label> <label><input type="radio" name="type" value="group"> Group class</label></p>
-          <p><label for="book-branch">Branch</label><br><select id="book-branch" name="branch"><option>Imanbayeva 8/2</option><option>Asfendiyarov 6</option></select></p>
-          <p><label for="book-notes">Goals or notes</label><br><textarea id="book-notes" name="notes" rows="4" cols="40" placeholder="For example: beginner, strength goal, preferred class"></textarea></p>
-          <p><label><input type="checkbox" name="terms" required> I understand this is only a request, not a confirmed booking.</label></p>
-          <p><button type="submit">Request booking</button> <button type="reset">Clear form</button></p>
-        </fieldset>
-      </form>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-danger">
+    <div class="container-fluid px-md-4">
+      <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link text-light" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="colophon.html">Colophon</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link active text-danger" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="trainers.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
+</header>
+
+<main class="container py-5">
+  <h1 class="text-danger display-5 fw-bold mb-5 text-center">Request a training appointment</h1>
+
+  <section class="position-relative bg-black p-4 p-md-5 rounded border border-danger shadow">
+
+    <span class="position-absolute top-0 end-0 badge bg-danger fs-6 mt-3 me-3 shadow">NEW</span>
+
+    <div class="row">
+      <div class="col-12 col-lg-5 mb-4 mb-lg-0 pr-lg-4">
+        <h2 class="h3 text-danger">Plan your first session</h2>
+        <p class="text-light">This request form helps a visitor organize the details needed for a training appointment. It is useful to state whether you want a gym introduction, a personal training session or a group class. Tell the club about any health limitations before beginning an activity. A qualified professional can then advise whether the selected class and intensity are appropriate.</p>
+        <p class="text-light">Choose a date and branch that work for you, but remember that a submitted request is not a confirmed reservation. Reception must check trainer availability and the current club timetable. If you are new to exercise, begin at a comfortable level. A short, safe session is a better foundation than trying to complete a difficult program on day one.</p>
+      </div>
+
+      <div class="col-12 col-lg-7">
+        <form id="booking-form" action="#" method="post" class="bg-dark p-4 rounded border border-secondary">
+          <fieldset>
+            <legend class="text-danger h4 border-bottom border-secondary pb-2 mb-4">Booking request</legend>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="book-name" class="form-label text-light">Full name</label>
+                <input id="book-name" name="name" type="text" class="form-control bg-black text-light border-secondary" placeholder="Your full name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="book-email" class="form-label text-light">Email</label>
+                <input id="book-email" name="email" type="email" class="form-control bg-black text-light border-secondary" placeholder="name@example.com" required>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="book-phone" class="form-label text-light">Phone</label>
+                <input id="book-phone" name="phone" type="tel" class="form-control bg-black text-light border-secondary" placeholder="+7 700 000 00 00" required>
+              </div>
+              <div class="col-md-3">
+                <label for="book-age" class="form-label text-light">Age</label>
+                <input id="book-age" name="age" type="number" class="form-control bg-black text-light border-secondary" min="14" max="100" required>
+              </div>
+              <div class="col-md-3">
+                <label for="book-date" class="form-label text-light">Preferred date</label>
+                <input id="book-date" name="date" type="date" class="form-control bg-black text-light border-secondary" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-light d-block">Training type</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="type" id="type-intro" value="intro" required>
+                <label class="form-check-label text-light" for="type-intro">Gym introduction</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="type" id="type-personal" value="personal">
+                <label class="form-check-label text-light" for="type-personal">Personal training</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="type" id="type-group" value="group">
+                <label class="form-check-label text-light" for="type-group">Group class</label>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="book-branch" class="form-label text-light">Branch</label>
+              <select id="book-branch" name="branch" class="form-select bg-black text-light border-secondary">
+                <option>Imanbayeva 8/2</option>
+                <option>Asfendiyarov 6</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="book-notes" class="form-label text-light">Goals or notes</label>
+              <textarea id="book-notes" name="notes" rows="3" class="form-control bg-black text-light border-secondary" placeholder="For example: beginner, strength goal, preferred class"></textarea>
+            </div>
+
+            <div class="form-check mb-4">
+              <input class="form-check-input" type="checkbox" name="terms" id="book-terms" required>
+              <label class="form-check-label text-light" for="book-terms">
+                I understand this is only a request, not a confirmed booking.
+              </label>
+            </div>
+
+            <div class="d-flex gap-3">
+              <button type="submit" class="btn btn-danger px-4">Request booking</button>
+              <button type="reset" class="btn btn-outline-danger px-4">Clear form</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
   </section>
 </main>
-<footer><p>&copy; 2026 Student Project | <a href="tel:+77783457405">Call the club</a></p></footer>
+
+<footer class="bg-black border-top border-warning py-4 mt-5 text-center">
+  <div class="container">
+    <p class="mb-0 text-light">&copy; 2026 Student Project | <a href="tel:+77783457405" class="text-warning text-decoration-none">Call the club</a></p>
+  </div>
+</footer>
 </body>
 </html>
