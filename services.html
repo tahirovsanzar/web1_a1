@@ -41,33 +41,38 @@
 <main class="container py-5">
   <h1 class="text-danger display-5 fw-bold mb-5 text-center">Services and activities</h1>
 
-  <section class="mb-5">
+  <section class="mb-5" id="services-intro">
     <h2 class="h3 text-danger">Choose an activity for your goal</h2>
     <p class="lead">Experience Fitness locations are listed with a gym, cardio training and group sessions. The published activity lists include yoga, stretching, functional training, healthy-back classes, power aerobics, upper body and lower body sessions. These options can serve different goals: a gym workout can develop strength, cardio can support endurance and a group class can add routine and instruction.</p>
   </section>
 
-  <section class="row g-4">
+  <!-- JS izlashi uchun id qo'shildi -->
+  <section class="row g-4" id="services-grid">
 
+    <!-- Card 1 -->
     <div class="col-12 col-md-4">
-      <article class="card bg-black border-danger h-100 shadow">
-        <div class="card-body">
+      <article class="card bg-black border-danger h-100 shadow d-flex flex-column">
+        <div class="card-body d-flex flex-column">
           <h2 class="card-title h5 text-danger">Suggested first-week plan</h2>
-          <ol start="1" class="text-light mt-3">
+          <ol start="1" class="text-light mt-3 mb-4 flex-grow-1">
             <li class="mb-2">Ask reception about the current timetable.</li>
             <li class="mb-2">Take a short tour of the gym and changing room.</li>
             <li class="mb-2">Try a beginner-friendly session or book an introduction.</li>
           </ol>
+          <!-- Mantiqiy tugallanish uchun Booking'ga yo'naltirish -->
+          <a href="booking.html" id="btn-book-intro" class="btn btn-outline-danger w-100 mt-auto">Book an Introduction</a>
         </div>
       </article>
     </div>
 
+    <!-- Card 2 -->
     <div class="col-12 col-md-4">
-      <article class="card bg-black border-danger h-100 shadow">
-        <div class="card-body">
+      <article class="card bg-black border-danger h-100 shadow d-flex flex-column">
+        <div class="card-body d-flex flex-column">
           <h2 class="card-title h5 text-danger">Our Programs</h2>
           <p class="text-light mt-2">Choose a workout for your goals:</p>
-          <ul class="text-light list-unstyled">
-            <li>✔️️ Full Body</li>
+          <ul class="text-light list-unstyled flex-grow-1 mb-4">
+            <li>✔️ Full Body</li>
             <li>✔️ Fight</li>
             <li>✔️ Yoga</li>
             <li>✔️ Healthy Posture</li>
@@ -77,15 +82,18 @@
             <li>✔️ Strength and Flexibility</li>
             <li>✔️ Functional Training</li>
           </ul>
+          <!-- Xizmatni tanlagach, uni band qilish tugmasi -->
+          <a href="booking.html" id="btn-book-program" class="btn btn-danger w-100 mt-auto">Book a Program</a>
         </div>
       </article>
     </div>
 
+    <!-- Card 3 -->
     <div class="col-12 col-md-4">
-      <article class="card bg-black border-danger h-100 shadow">
-        <div class="card-body">
+      <article class="card bg-black border-danger h-100 shadow d-flex flex-column">
+        <div class="card-body d-flex flex-column">
           <h2 class="card-title h5 text-danger">What to bring</h2>
-          <ul class="text-light mt-3">
+          <ul class="text-light mt-3 flex-grow-1 mb-4">
             <li class="mb-2">Training shoes
               <ul>
                 <li>Clean indoor shoes are best for the gym floor.</li>
@@ -95,6 +103,8 @@
             <li class="mb-2">Water bottle</li>
             <li class="mb-2">Towel</li>
           </ul>
+          <!-- Qo'shimcha ma'lumot uchun Contact sahifasiga yo'naltirish -->
+          <a href="contact.html" id="btn-ask-rules" class="btn btn-outline-danger w-100 mt-auto">Ask about Club Rules</a>
         </div>
       </article>
     </div>

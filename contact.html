@@ -16,9 +16,9 @@
 <body class="bg-dark text-light">
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-warning">
+  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-danger">
     <div class="container-fluid px-md-4">
-      <a class="navbar-brand text-warning fw-bold" href="index.html">EXPERIENCE FITNESS</a>
+      <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,7 +31,7 @@
           <li class="nav-item"><a class="nav-link text-light" href="services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link text-light" href="booking.html">Booking</a></li>
           <li class="nav-item"><a class="nav-link text-light" href="trainers.html">Training</a></li>
-          <li class="nav-item"><a class="nav-link active text-warning" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active text-danger" href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -39,106 +39,54 @@
 </header>
 
 <main class="container py-5">
-  <h1 class="text-warning display-5 fw-bold mb-5 text-center">Contact and feedback</h1>
-
-  <a href="tel:+77783457405" class="btn btn-warning btn-lg position-fixed bottom-0 end-0 m-4 shadow z-3 rounded-pill">Call Us</a>
-
-  <section class="row g-4 mb-5">
-    <article class="col-12 col-md-6">
-      <div class="card bg-black border-warning h-100 shadow">
-        <div class="card-body">
-          <h2 class="card-title h4 text-warning">Reach the club</h2>
-          <p class="card-text text-light">For current information about membership, classes and visits, contact the branch directly. The listed Imanbayeva location is Sholpan Imanbayeva Street 8/2, fourth floor, Astana. Its listed phone number is <a href="tel:+77783457405" class="text-warning text-decoration-none">+7‒778‒345‒74‒05</a>. The second listed location is Sanjar Asfendiyarov Street 6, Astana. Confirm the current telephone number, opening time and class schedule with the branch before you travel.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="col-12 col-md-6">
-      <div class="card bg-black border-warning h-100 shadow">
-        <div class="card-body">
-          <h2 class="card-title h4 text-warning">Online</h2>
-          <p class="card-text text-light">You can also visit the club’s <a href="https://www.instagram.com/experience.fitness.kz/" target="_blank" rel="noopener noreferrer" class="text-warning">Instagram page</a> for updates. A <a href="mailto:info@example.com" class="text-warning">mailto link in this student example</a> opens an email application, but you must replace it with a verified club email address if one is provided by the business. <br><br><small class="text-muted">This site is a classroom project and is not the official Experience Fitness website.</small></p>
-        </div>
-      </div>
-    </article>
-  </section>
-
-  <section class="row justify-content-center">
+  <div class="row justify-content-center">
     <div class="col-12 col-lg-8">
-      <form action="#" method="post" class="bg-black p-4 p-md-5 rounded border border-warning shadow">
-        <fieldset>
-          <legend class="text-warning h3 border-bottom border-secondary pb-3 mb-4">Feedback form</legend>
+      <h1 class="text-danger display-5 fw-bold mb-4 text-center">Contact Us</h1>
+      <p class="lead text-center mb-5">Have a question about our clubs or memberships? Send us a message and our team will get back to you.</p>
 
-          <div class="mb-3">
-            <label for="contact-name" class="form-label text-light">Full name</label>
-            <input id="contact-name" name="name" type="text" class="form-control bg-dark text-light border-secondary" placeholder="Your full name" required>
-          </div>
+      <form id="contact-form" class="bg-black p-4 rounded border border-danger shadow">
+        <div class="mb-3">
+          <label for="contact-name" class="form-label text-light">Full Name</label>
+          <input type="text" class="form-control" id="contact-name" placeholder="Enter your full name">
+        </div>
+        <div class="mb-3">
+          <label for="contact-email" class="form-label text-light">Email Address</label>
+          <input type="email" class="form-control" id="contact-email" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="contact-subject" class="form-label text-light">Subject</label>
+          <select class="form-select" id="contact-subject">
+            <option value="" selected disabled>Choose a topic...</option>
+            <option value="membership">Membership Prices</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other Inquiry</option>
+          </select>
+        </div>
 
-          <div class="mb-3">
-            <label for="contact-email" class="form-label text-light">Email</label>
-            <input id="contact-email" name="email" type="email" class="form-control bg-dark text-light border-secondary" placeholder="name@example.com" required>
-          </div>
+        <!-- Feedback uchun zalga kelganlik sonini so'rash (JS uchun maxsus id bilan o'ralgan) -->
+        <div class="mb-3" id="feedback-visits-container">
+          <label for="contact-visits" class="form-label text-light">How many times have you visited us? (For Feedback)</label>
+          <select class="form-select" id="contact-visits">
+            <option value="" selected disabled>Select an option...</option>
+            <option value="0">I haven't visited yet</option>
+            <option value="1">First time</option>
+            <option value="2-5">2 to 5 times</option>
+            <option value="6+">More than 5 times / Regular member</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="contact-message" class="form-label text-light">Message</label>
+          <textarea class="form-control" id="contact-message" rows="5" placeholder="How can we help you?"></textarea>
+        </div>
+        <button type="submit" id="submit-contact-btn" class="btn btn-danger w-100">Send Message</button>
 
-          <div class="mb-3">
-            <label for="contact-phone" class="form-label text-light">Phone</label>
-            <input id="contact-phone" name="phone" type="tel" class="form-control bg-dark text-light border-secondary" placeholder="+7 700 000 00 00" required>
-          </div>
-
-          <div class="row g-3 mb-3">
-            <div class="col-md-6">
-              <label for="contact-visits" class="form-label text-light">Number of visits</label>
-              <input id="contact-visits" name="visits" type="number" class="form-control bg-dark text-light border-secondary" min="0" max="100" required>
-            </div>
-            <div class="col-md-6">
-              <label for="contact-date" class="form-label text-light">Visit date</label>
-              <input id="contact-date" name="date" type="date" class="form-control bg-dark text-light border-secondary" required>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label text-light d-block">Feedback type</label>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="feedback-type" id="feedback-question" value="question" required>
-              <label class="form-check-label text-light" for="feedback-question">Question</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="feedback-type" id="feedback-comment" value="comment">
-              <label class="form-check-label text-light" for="feedback-comment">Comment</label>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="contact-branch" class="form-label text-light">Branch visited</label>
-            <select id="contact-branch" name="branch" class="form-select bg-dark text-light border-secondary">
-              <option>Imanbayeva 8/2</option>
-              <option>Asfendiyarov 6</option>
-            </select>
-          </div>
-
-          <div class="mb-4">
-            <label for="contact-message" class="form-label text-light">Message</label>
-            <textarea id="contact-message" name="message" rows="5" class="form-control bg-dark text-light border-secondary" placeholder="Write your feedback here" required></textarea>
-          </div>
-
-          <div class="form-check mb-4">
-            <input class="form-check-input" type="checkbox" name="permission" id="contact-permission" required>
-            <label class="form-check-label text-light" for="contact-permission">
-              I give permission to contact me about this message.
-            </label>
-          </div>
-
-          <div class="d-flex gap-3">
-            <button type="submit" class="btn btn-warning px-4">Send feedback</button>
-            <button type="reset" class="btn btn-outline-warning px-4">Clear form</button>
-          </div>
-
-        </fieldset>
+        <!-- Kelajakda JS xabari chiqadigan joy -->
+        <div id="contact-response" class="alert alert-success d-none mt-3 mb-0" role="alert"></div>
       </form>
     </div>
-  </section>
-
+  </div>
 </main>
-<footer class="bg-black border-top border-warning py-4 mt-5 text-center">
+<footer class="bg-black border-top border-danger py-4 mt-5 text-center">
   <div class="container">
     <p class="mb-0 text-light">&copy; 2026 Student Project | Astana, Kazakhstan</p>
   </div>

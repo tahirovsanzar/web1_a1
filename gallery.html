@@ -45,15 +45,14 @@
     <p class="lead mx-auto" style="max-width: 800px;">Take a look at the training zones, modern equipment, and comfortable spaces available at Experience Fitness in Astana. Every zone is designed to provide the best environment for your fitness journey.</p>
   </div>
 
-  <section class="row g-4 justify-content-center">
-
+  <section id="gallery-grid" class="row g-4 justify-content-center">
     <article class="col-12 col-md-6 col-lg-4">
       <div class="card bg-black border-danger h-100 shadow">
         <img src="img/gym-floor.jpg" class="card-img-top" alt="Main gym floor equipped with modern exercise machines and weights at Experience Fitness Astana">
         <div class="card-body d-flex flex-column">
           <h3 class="card-title h5 text-danger">Gym Floor and Equipment</h3>
           <p class="card-text text-light flex-grow-1">Our spacious workout areas feature modern strength and cardio machines suited for all levels of experience.</p>
-          <p class="text-muted small mb-0 mt-2 border-top border-secondary pt-2">Main gym floor and strength training zone</p>
+          <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Main gym floor and strength training zone</p>
         </div>
       </div>
     </article>
@@ -64,7 +63,7 @@
         <div class="card-body d-flex flex-column">
           <h3 class="card-title h5 text-danger">Group Class Studio</h3>
           <p class="card-text text-light flex-grow-1">Dedicated space for yoga, stretching, and high-intensity functional group workouts.</p>
-          <p class="text-muted small mb-0 mt-2 border-top border-secondary pt-2">Group fitness and yoga studio</p>
+          <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Group fitness and yoga studio</p>
         </div>
       </div>
     </article>
@@ -75,12 +74,19 @@
         <div class="card-body d-flex flex-column">
           <h3 class="card-title h5 text-danger">Relaxation Area</h3>
           <p class="card-text text-light flex-grow-1">Post-workout recovery zones including sauna facilities to help you unwind and recharge.</p>
-          <p class="text-muted small mb-0 mt-2 border-top border-secondary pt-2">Sauna and recovery wellness zone</p>
+          <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Sauna and recovery wellness zone</p>
         </div>
       </div>
     </article>
 
   </section>
+  <!-- JS rasmni kattalashtirib ochadigan bo'sh modal oyna (hozircha d-none bilan yashirilgan) -->
+  <div id="gallery-modal" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 z-3 justify-content-center align-items-center">
+    <div class="text-center position-relative">
+      <img id="modal-image" src="" alt="Full size preview" class="img-fluid max-vh-100 rounded shadow-lg border border-danger">
+      <button id="close-modal-btn" class="btn btn-danger position-absolute top-0 end-0 m-3">X</button>
+    </div>
+  </div>
 </main>
 
 <footer class="bg-black border-top border-danger py-4 mt-5 text-center">

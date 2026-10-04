@@ -53,77 +53,47 @@
       </div>
 
       <div class="col-12 col-lg-7">
-        <form id="booking-form" action="#" method="post" class="bg-dark p-4 rounded border border-secondary">
-          <fieldset>
-            <legend class="text-danger h4 border-bottom border-secondary pb-2 mb-4">Booking request</legend>
+        <form id="booking-form" class="bg-black p-4 rounded border border-danger shadow">
+          <!-- Mijoz ismi -->
+          <div class="mb-3">
+            <label for="booking-name" class="form-label text-light">Full Name</label>
+            <input type="text" class="form-control" id="booking-name" placeholder="Enter your name">
+          </div>
 
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label for="book-name" class="form-label text-light">Full name</label>
-                <input id="book-name" name="name" type="text" class="form-control bg-black text-light border-secondary" placeholder="Your full name" required>
-              </div>
-              <div class="col-md-6">
-                <label for="book-email" class="form-label text-light">Email</label>
-                <input id="book-email" name="email" type="email" class="form-control bg-black text-light border-secondary" placeholder="name@example.com" required>
-              </div>
-            </div>
+          <!-- Filialni tanlash (Yangi qism) -->
+          <div class="mb-3">
+            <label for="booking-location" class="form-label text-light">Select Location</label>
+            <select class="form-select" id="booking-location">
+              <option value="" selected disabled>Choose a club...</option>
+              <option value="imanbayeva">Sholpan Imanbayeva Street 8/2</option>
+              <option value="asfendiyarov">Sanjar Asfendiyarov Street 6</option>
+            </select>
+          </div>
 
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label for="book-phone" class="form-label text-light">Phone</label>
-                <input id="book-phone" name="phone" type="tel" class="form-control bg-black text-light border-secondary" placeholder="+7 700 000 00 00" required>
-              </div>
-              <div class="col-md-3">
-                <label for="book-age" class="form-label text-light">Age</label>
-                <input id="book-age" name="age" type="number" class="form-control bg-black text-light border-secondary" min="14" max="100" required>
-              </div>
-              <div class="col-md-3">
-                <label for="book-date" class="form-label text-light">Preferred date</label>
-                <input id="book-date" name="date" type="date" class="form-control bg-black text-light border-secondary" required>
-              </div>
-            </div>
+          <!-- Xizmat turini tanlash -->
+          <div class="mb-3">
+            <label for="booking-service" class="form-label text-light">Select Service</label>
+            <select class="form-select" id="booking-service">
+              <option value="" selected disabled>Choose a service...</option>
+              <option value="gym">Gym Day Pass</option>
+              <option value="pt">Personal Training</option>
+              <option value="group">Group Class</option>
+            </select>
+          </div>
 
-            <div class="mb-3">
-              <label class="form-label text-light d-block">Training type</label>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="type" id="type-intro" value="intro" required>
-                <label class="form-check-label text-light" for="type-intro">Gym introduction</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="type" id="type-personal" value="personal">
-                <label class="form-check-label text-light" for="type-personal">Personal training</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="type" id="type-group" value="group">
-                <label class="form-check-label text-light" for="type-group">Group class</label>
-              </div>
-            </div>
+          <!-- Sanani tanlash -->
+          <div class="mb-3">
+            <label for="booking-date" class="form-label text-light">Preferred Date</label>
+            <input type="date" class="form-control" id="booking-date">
+          </div>
 
-            <div class="mb-3">
-              <label for="book-branch" class="form-label text-light">Branch</label>
-              <select id="book-branch" name="branch" class="form-select bg-black text-light border-secondary">
-                <option>Imanbayeva 8/2</option>
-                <option>Asfendiyarov 6</option>
-              </select>
-            </div>
+          <!-- Jo'natish tugmasi -->
+          <button type="submit" id="submit-booking-btn" class="btn btn-danger w-100">Request Appointment</button>
 
-            <div class="mb-3">
-              <label for="book-notes" class="form-label text-light">Goals or notes</label>
-              <textarea id="book-notes" name="notes" rows="3" class="form-control bg-black text-light border-secondary" placeholder="For example: beginner, strength goal, preferred class"></textarea>
-            </div>
-
-            <div class="form-check mb-4">
-              <input class="form-check-input" type="checkbox" name="terms" id="book-terms" required>
-              <label class="form-check-label text-light" for="book-terms">
-                I understand this is only a request, not a confirmed booking.
-              </label>
-            </div>
-
-            <div class="d-flex gap-3">
-              <button type="submit" class="btn btn-danger px-4">Request booking</button>
-              <button type="reset" class="btn btn-outline-danger px-4">Clear form</button>
-            </div>
-          </fieldset>
+          <!-- Natija chiqadigan bo'sh konteyner (hozir yashirin, JS uchun tayyor) -->
+          <div id="booking-confirmation" class="alert alert-success d-none mt-3 mb-0" role="alert">
+            <!-- JS xabari shu yerga tushadi -->
+          </div>
         </form>
       </div>
     </div>

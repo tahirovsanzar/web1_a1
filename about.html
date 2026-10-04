@@ -16,7 +16,7 @@
 <body class="bg-dark text-light">
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-warning">
+  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-danger">
     <div class="container-fluid px-md-4">
       <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -50,23 +50,24 @@
         <p class="text-light">The Imanbayeva club is listed with group activities such as yoga, stretching, functional training and upper- and lower-body classes. It also lists a gym, cardio area, personal training, massage, sauna and parking. A new visitor should begin by explaining their goal: general health, strength, mobility or a planned event. This helps the club team suggest an appropriate class or trainer.</p>
         <figure></figure>
 
-        <!-- Замена текстовых ссылок на кнопки Bootstrap -->
         <div class="d-flex flex-wrap gap-3 mt-4">
-          <a href="#visit-tips" class="btn btn-danger">Go to visit tips</a>
-          <a href="#contact-details" class="btn btn-outline-danger">Contact details</a>
+          <a href="#visit-tips" id="btn-scroll-tips" class="btn btn-danger">Go to visit tips</a>
+          <a href="#contact-details" id="btn-scroll-contact" class="btn btn-outline-danger">Contact details</a>
         </div>
       </article>
 
       <section id="contact-details" class="bg-black p-4 rounded border border-danger shadow">
         <h2 class="h4 text-danger">Contact details</h2>
-        <p class="mb-0 text-light">Imanbayeva: <a href="tel:+77783457405" class="text-danger text-decoration-none">+7‒778‒345‒74‒05</a>. For the other branch, use the <a href="contact.html" class="text-warning text-decoration-none">contact page</a>.</p>
+        <p class="mb-0 text-light">Imanbayeva: <a href="tel:+77783457405" class="text-danger text-decoration-none">+7‒778‒345‒74‒05</a>. For the other branch, use the <a href="contact.html" class="text-danger text-decoration-none">contact page</a>.</p>
       </section>
     </div>
 
     <div class="col-12 col-lg-4">
       <section id="about-section" class="bg-black p-4 rounded border border-danger shadow h-100">
         <h2 id="visit-tips" class="h4 text-danger">Visit tips and Schedule</h2>
-        <p class="text-light mb-4">Call first, bring identification if requested and ask about a trial visit. <abbr title="Frequently Asked Questions" class="text-danger text-decoration-underline">FAQ</abbr>: ask reception whether the session is suitable for beginners.</p>
+
+        <!-- FAQ qismi haqiqiy linkka aylantirildi va contact.html ga ulandi -->
+        <p class="text-light mb-4">Call first, bring identification if requested and ask about a trial visit. <a href="contact.html" class="text-danger fw-bold text-decoration-none">FAQ (Questions)</a>: ask reception whether the session is suitable for beginners.</p>
 
         <article class="schedule-box">
           <h3 class="h5 text-danger border-bottom border-secondary pb-2">Working Hours</h3>
@@ -88,7 +89,7 @@
   </div>
 </main>
 
-<footer class="bg-black border-top border-warning py-4 mt-5 text-center">
+<footer class="bg-black border-top border-danger py-4 mt-5 text-center">
   <div class="container">
     <p class="mb-0 text-light">&copy; 2026 Student Project | Astana, Kazakhstan</p>
   </div>

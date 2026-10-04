@@ -39,23 +39,22 @@
 
 <main class="container py-5">
   <div class="row justify-content-center">
-    <section class="col-12 col-lg-8 bg-black p-4 p-md-5 rounded border border-warning shadow lh-lg">
+    <div class="col-12 col-lg-8 bg-black p-5 rounded border border-danger shadow">
+      <h1 class="text-danger display-5 fw-bold mb-4">Colophon</h1>
 
-      <h2 class="text-warning mb-4">Project Method & Validation</h2>
+      <h2 class="h4 text-danger mt-4">About the Project</h2>
+      <p class="text-light">This website was developed as a Midterm Project for the Web Technologies course by Tahirov Sanzharbek, Meirzhan Zhaumytbay, and Bekzat Kaliev. It represents a functional, responsive front-end interface for "Experience Fitness Astana".</p>
 
-      <p class="text-light">This website was built as a set of local HTML files. Every page uses the same semantic structure: a <code>&lt;header&gt;</code> for the site identity, a <code>&lt;nav&gt;</code> list for links, <code>&lt;main&gt;</code> for page content, and a <code>&lt;footer&gt;</code> for contact details. The browser reads the document type declaration first, then interprets the HTML elements and creates the page shown on screen. No external CSS frameworks, JavaScript, or templates are used in this version. The design is built entirely with custom CSS.</p>
+      <h2 class="h4 text-danger mt-4">Technologies Used</h2>
+      <ul class="text-light">
+        <li><strong>HTML5:</strong> Semantic structure and form inputs prepared with unique IDs for future JavaScript integration.</li>
+        <li><strong>CSS3:</strong> Custom base styling for typography and animations.</li>
+        <li><strong>Bootstrap 5.3:</strong> Utilized via CDN for the responsive grid system, navigation bar, cards, and utility classes (e.g., text-danger, bg-black).</li>
+      </ul>
 
-      <p class="text-light">We chose <code>&lt;section&gt;</code> to group related information, <code>&lt;article&gt;</code> for independent pieces such as class descriptions, and <code>&lt;aside&gt;</code> for supporting advice. These elements explain the meaning of the content better than a generic <code>&lt;div&gt;</code>. A basic structure in our project looks like this:</p>
-
-      <pre id="colophon-code" class="bg-dark text-warning p-3 rounded border border-secondary mt-4 mb-4"><code>
-&lt;main&gt;
-  &lt;h1&gt;Page title&lt;/h1&gt;
-  &lt;section&gt;Useful content&lt;/section&gt;
-&lt;/main&gt;
-      </code></pre>
-
-      <p class="mt-4 text-light">During development, we load the files in a browser and use <strong>Ctrl + R</strong> to refresh a local page and view updates. Furthermore, all pages have been tested for correct W3C HTML5 semantics. A successful validation result on our pages confirms the code quality, stating: <em>"Document checking completed. No errors found."</em> At present, when a visitor presses a submit button, the forms do not send data because this project has no server-side program.</p>
-    </section>
+      <h2 class="h4 text-danger mt-4">Design Choices</h2>
+      <p class="text-light">The color palette relies on a dark theme (`bg-dark`, `bg-black`) contrasted with red highlights (`danger` theme in Bootstrap) to convey energy and action, fitting for a fitness club.</p>
+    </div>
   </div>
 </main>
 

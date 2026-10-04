@@ -16,9 +16,9 @@
 <body class="bg-dark text-light">
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-warning">
+  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-danger">
     <div class="container-fluid px-md-4">
-      <a class="navbar-brand text-warning fw-bold" href="index.html">EXPERIENCE FITNESS</a>
+      <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,84 +30,94 @@
           <li class="nav-item"><a class="nav-link text-light" href="gallery.html">Gallery</a></li>
           <li class="nav-item"><a class="nav-link text-light" href="services.html">Services</a></li>
           <li class="nav-item"><a class="nav-link text-light" href="booking.html">Booking</a></li>
-          <li class="nav-item"><a class="nav-link active text-warning" href="trainers.html">Training</a></li>
+          <li class="nav-item"><a class="nav-link active text-danger" href="trainers.html">Training</a></li>
           <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
-
 <main class="container py-5">
-  <h1 class="text-warning display-5 fw-bold mb-5 text-center">Training guidance & Our Team</h1>
+  <h1 class="text-danger display-5 fw-bold mb-5 text-center">Training guidance & Our Team</h1>
 
   <section class="mb-5">
-    <h2 class="h3 text-warning">Ask for the right support</h2>
+    <h2 class="h3 text-danger">Ask for the right support</h2>
     <p class="lead">Experience Fitness lists personal training and group classes among its services. A personal trainer can help a member learn safe machine setup, plan exercises and monitor technique. A group class gives a scheduled format and can be motivating for people who prefer to train with others. The best choice depends on your experience, schedule and health needs.</p>
 
-    <dl class="row mt-4 bg-black p-4 rounded border border-warning shadow">
-      <dt class="col-sm-3 text-warning">Strength training</dt>
+    <dl class="row mt-4 bg-black p-4 rounded border border-danger shadow">
+      <dt class="col-sm-3 text-danger">Strength training</dt>
       <dd class="col-sm-9">Exercises that gradually improve muscular strength and control.</dd>
 
-      <dt class="col-sm-3 text-warning mt-3 mt-sm-0">Cardio training</dt>
+      <dt class="col-sm-3 text-danger mt-3 mt-sm-0">Cardio training</dt>
       <dd class="col-sm-9">Movement that challenges the heart and lungs, such as cycling or treadmill work.</dd>
 
-      <dt class="col-sm-3 text-warning mt-3 mt-sm-0">Mobility</dt>
+      <dt class="col-sm-3 text-danger mt-3 mt-sm-0">Mobility</dt>
       <dd class="col-sm-9">Controlled movement that supports comfortable range of motion.</dd>
     </dl>
   </section>
 
   <section>
-    <h2 class="mt-5 text-center text-warning mb-4">Наша команда тренеров</h2>
+    <h2 class="mt-5 text-center text-danger mb-4">Наша команда тренеров</h2>
 
-    <div class="row g-4 justify-content-center">
+    <!-- JS uchun id="trainers-grid" qo'shildi -->
+    <div class="row g-4 justify-content-center" id="trainers-grid">
 
+      <!-- Trainer 1 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <article class="card bg-black border-warning h-100 text-center shadow">
-          <img src="img/sokolovskiy_an.jpg" class="card-img-top" alt="Тренер sokolovskiy_an">
+        <article class="card bg-black border-danger h-100 text-center shadow">
+          <img src="img/sokolovskiy_an.jpg" class="card-img-top" alt="Тренер Sokolovskiy">
           <div class="card-body d-flex flex-column">
-            <h3 class="card-title h5 text-warning">Sokolovskiy</h3>
-            <p class="card-text mt-auto">Instagram: <br> <a href="https://instagram.com/sokolovskiy_an" target="_blank" class="text-light text-decoration-none">@sokolovskiy_an</a></p>
+            <h3 class="card-title h5 text-danger">Sokolovskiy</h3>
+            <p class="card-text">Instagram: <br> <a href="https://instagram.com/sokolovskiy_an" target="_blank" class="text-light text-decoration-none">@sokolovskiy_an</a></p>
+            <a href="booking.html" id="btn-book-sokolovskiy" class="btn btn-outline-danger mt-auto w-100">Train with Sokolovskiy</a>
           </div>
         </article>
       </div>
 
+      <!-- Trainer 2 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <article class="card bg-black border-warning h-100 text-center shadow">
-          <img src="img/sama.vse.znau.jpg" class="card-img-top" alt="Тренер sama.vse.znau">
+        <article class="card bg-black border-danger h-100 text-center shadow">
+          <img src="img/sama.vse.znau.jpg" class="card-img-top" alt="Тренер Sama">
           <div class="card-body d-flex flex-column">
-            <h3 class="card-title h5 text-warning">Sama</h3>
-            <p class="card-text mt-auto">Instagram: <br> <a href="https://instagram.com/sama.vse.znau" target="_blank" class="text-light text-decoration-none">@sama.vse.znau</a></p>
+            <h3 class="card-title h5 text-danger">Sama</h3>
+            <p class="card-text">Instagram: <br> <a href="https://instagram.com/sama.vse.znau" target="_blank" class="text-light text-decoration-none">@sama.vse.znau</a></p>
+            <a href="booking.html" id="btn-book-sama" class="btn btn-outline-danger mt-auto w-100">Train with Sama</a>
           </div>
         </article>
       </div>
 
+      <!-- Trainer 3 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <article class="card bg-black border-warning h-100 text-center shadow">
-          <img src="img/anna.trener.jpg" class="card-img-top" alt="Тренер anna.trener">
+        <article class="card bg-black border-danger h-100 text-center shadow">
+          <img src="img/anna.trener.jpg" class="card-img-top" alt="Тренер Anna">
           <div class="card-body d-flex flex-column">
-            <h3 class="card-title h5 text-warning">Anna</h3>
-            <p class="card-text mt-auto">Instagram: <br> <a href="https://instagram.com/anna.trener" target="_blank" class="text-light text-decoration-none">@anna.trener</a></p>
+            <h3 class="card-title h5 text-danger">Anna</h3>
+            <p class="card-text">Instagram: <br> <a href="https://instagram.com/anna.trener" target="_blank" class="text-light text-decoration-none">@anna.trener</a></p>
+            <a href="booking.html" id="btn-book-anna" class="btn btn-outline-danger mt-auto w-100">Train with Anna</a>
           </div>
         </article>
       </div>
 
+      <!-- Trainer 4 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <article class="card bg-black border-warning h-100 text-center shadow">
-          <img src="img/ulzhan_abeu.jpg" class="card-img-top" alt="Тренер ulzhan_abeu">
+        <article class="card bg-black border-danger h-100 text-center shadow">
+          <img src="img/ulzhan_abeu.jpg" class="card-img-top" alt="Тренер Ulzhan">
           <div class="card-body d-flex flex-column">
-            <h3 class="card-title h5 text-warning">Ulzhan</h3>
-            <p class="card-text mt-auto">Instagram: <br> <a href="https://instagram.com/ulzhan_abeu" target="_blank" class="text-light text-decoration-none">@ulzhan_abeu</a></p>
+            <h3 class="card-title h5 text-danger">Ulzhan</h3>
+            <p class="card-text">Instagram: <br> <a href="https://instagram.com/ulzhan_abeu" target="_blank" class="text-light text-decoration-none">@ulzhan_abeu</a></p>
+            <a href="booking.html" id="btn-book-ulzhan" class="btn btn-outline-danger mt-auto w-100">Train with Ulzhan</a>
           </div>
         </article>
       </div>
 
+      <!-- Trainer 5 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <article class="card bg-black border-warning h-100 text-center shadow">
-          <img src="img/izzkussin.jpg" class="card-img-top" alt="Тренер iskazzzin">
+        <article class="card bg-black border-danger h-100 text-center shadow">
+          <img src="img/izzkussin.jpg" class="card-img-top" alt="Тренер Iskazzzin">
           <div class="card-body d-flex flex-column">
-            <h3 class="card-title h5 text-warning">Iskazzzin</h3>
-            <p class="card-text mt-auto">Instagram: <br> <a href="https://instagram.com/iskazzzin" target="_blank" class="text-light text-decoration-none">@iskazzzin</a></p>
+            <h3 class="card-title h5 text-danger">Iskazzzin</h3>
+            <p class="card-text">Instagram: <br> <a href="https://instagram.com/iskazzzin" target="_blank" class="text-light text-decoration-none">@iskazzzin</a></p>
+            <a href="booking.html" id="btn-book-iskazzzin" class="btn btn-outline-danger mt-auto w-100">Train with Iskazzzin</a>
           </div>
         </article>
       </div>
@@ -116,9 +126,9 @@
   </section>
 </main>
 
-<footer class="bg-black border-top border-warning py-4 mt-5 text-center">
+<footer class="bg-black border-top border-danger py-4 mt-5 text-center">
   <div class="container">
-    <p class="mb-0 text-light">&copy; 2026 Student Project | <a href="booking.html" class="text-warning text-decoration-none">Request training</a></p>
+    <p class="mb-0 text-light">&copy; 2026 Student Project | <a href="booking.html" class="text-danger text-decoration-none">Request training</a></p>
   </div>
 </footer>
 </body>
