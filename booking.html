@@ -54,13 +54,11 @@
 
       <div class="col-12 col-lg-7">
         <form id="booking-form" class="bg-black p-4 rounded border border-danger shadow">
-          <!-- Mijoz ismi -->
           <div class="mb-3">
             <label for="booking-name" class="form-label text-light">Full Name</label>
             <input type="text" class="form-control" id="booking-name" placeholder="Enter your name">
           </div>
 
-          <!-- Filialni tanlash (Yangi qism) -->
           <div class="mb-3">
             <label for="booking-location" class="form-label text-light">Select Location</label>
             <select class="form-select" id="booking-location">
@@ -70,7 +68,6 @@
             </select>
           </div>
 
-          <!-- Xizmat turini tanlash -->
           <div class="mb-3">
             <label for="booking-service" class="form-label text-light">Select Service</label>
             <select class="form-select" id="booking-service">
@@ -81,18 +78,14 @@
             </select>
           </div>
 
-          <!-- Sanani tanlash -->
           <div class="mb-3">
             <label for="booking-date" class="form-label text-light">Preferred Date</label>
             <input type="date" class="form-control" id="booking-date">
           </div>
 
-          <!-- Jo'natish tugmasi -->
           <button type="submit" id="submit-booking-btn" class="btn btn-danger w-100">Request Appointment</button>
 
-          <!-- Natija chiqadigan bo'sh konteyner (hozir yashirin, JS uchun tayyor) -->
           <div id="booking-confirmation" class="alert alert-success d-none mt-3 mb-0" role="alert">
-            <!-- JS xabari shu yerga tushadi -->
           </div>
         </form>
       </div>
