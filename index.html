@@ -3,93 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A student-made information website about Experience Fitness in Astana.">
+  <meta name="description" content="Explore Experience Fitness Astana, its locations and training programs.">
   <meta name="author" content="Tahirov Sanzharbek, Meirzhan Zhaumytbay, Bekzat Kaliev">
   <title>Experience Fitness Astana | Home</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/sanzharbek.css">
 </head>
 <body class="bg-dark text-light">
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-danger">
+  <a class="visually-hidden-focusable" href="#main-content">Skip to content</a>
+  <nav class="navbar navbar-dark bg-black border-bottom border-danger" aria-label="Main navigation">
     <div class="container-fluid px-md-4">
-      <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS ASTANA</a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link active text-danger" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="colophon.html">Colophon</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="booking.html">Booking</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="trainers.html">Training</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
+      <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS</a>
+      <details class="site-menu" id="main-menu" open>
+        <summary class="btn btn-outline-danger" id="menu-toggle">Menu</summary>
+        <ul class="navbar-nav flex-row flex-wrap gap-2" id="main-nav">
+          <li class="nav-item"><a id="nav-index" class="nav-link active text-danger" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a id="nav-about" class="nav-link text-light" href="about.html">About</a></li>
+          <li class="nav-item"><a id="nav-gallery" class="nav-link text-light" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a id="nav-services" class="nav-link text-light" href="services.html">Services</a></li>
+          <li class="nav-item"><a id="nav-booking" class="nav-link text-light" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a id="nav-trainers" class="nav-link text-light" href="trainers.html">Training</a></li>
+          <li class="nav-item"><a id="nav-contact" class="nav-link text-light" href="contact.html">Contact</a></li>
         </ul>
-      </div>
+      </details>
     </div>
   </nav>
 </header>
 
-<main class="container py-5">
+<main id="main-content" class="container py-5">
   <div class="row g-4">
 
-    <section class="main-article col-12 col-lg-8">
+    <section class="main-article col-12">
       <h1 id="promo-text" class="text-danger display-5 fw-bold mb-4">Experience Fitness in Astana</h1>
-      <h2 class="h3 text-danger">Move with purpose</h2>
-      <p class="lead">Experience Fitness is a fitness-club network in Astana. This student website introduces two listed locations: Sholpan Imanbayeva Street 8/2 and Sanjar Asfendiyarov Street 6. The club information describes gym training, cardio, group classes and personal training. Visitors can use this site to learn where the clubs are, compare membership options directly with the club, read about available activities and send a booking request.</p>
-
-      <p>A fitness routine can begin with a small decision: choose a realistic time, arrive prepared and ask for advice when an exercise is unfamiliar. <strong>Good technique matters more than heavy weight.</strong> A regular plan can be adjusted as a member gains confidence. This website is an informational class project; membership prices, schedules and availability must always be confirmed with Experience Fitness before a visit.</p>
-
-
-      <div class="d-flex flex-wrap gap-3 mt-4">
-        <a href="about.html" id="btn-explore-locations" class="btn btn-danger">Explore the two locations</a>
-        <a href="booking.html" id="btn-request-training" class="btn btn-outline-danger">Request a training appointment</a>
+      <div class="home-intro p-4 p-md-5">
+        <h2 class="h3 text-danger mb-3">Move with purpose</h2>
+        <p class="lead mb-0">Experience Fitness is a fitness-club network in Astana. Explore its two locations, nine training programs and trainer profiles. You can compare activities, learn what to expect on your first visit and plan a session at the branch that suits you.</p>
+        <hr class="home-divider my-4">
+        <p class="mb-0">A fitness routine can begin with a small decision: choose a realistic time, arrive prepared and ask for advice when an exercise is unfamiliar. <strong>Good technique matters more than heavy weight.</strong> A regular plan can be adjusted as a member gains confidence. This website is an informational class project; membership prices, schedules and availability must always be confirmed with Experience Fitness before a visit.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="booking.html" id="btn-request-training" class="btn btn-outline-danger">Plan a training visit</a>
+        </div>
       </div>
     </section>
 
-    <aside class="col-12 col-lg-4">
-      <div class="bg-black p-4 rounded border border-danger shadow h-100 justify-center">
-        <h2 class="h4 text-danger">Before your first visit</h2>
-        <p class="mb-0">Bring comfortable sportswear, clean training shoes and water. Ask the reception team about the current timetable and club rules.</p>
-      </div>
-    </aside>
-
   </div>
+
+  <section id="home-highlights" class="mt-5" aria-labelledby="home-highlights-heading">
+    <h2 id="home-highlights-heading" class="h3 text-danger mb-4">Explore the club</h2>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <article class="home-highlight h-100">
+          <div class="d-flex flex-column h-100">
+            <h3 class="h4 text-danger">Two locations</h3>
+            <p class="flex-grow-1">Find the clubs on Sholpan Imanbayeva Street and Sanjar Asfendiyarov Street. The About page has both addresses, maps, opening hours and branch phone numbers.</p>
+            <a id="home-about-link" href="about.html#locations" class="home-link mt-auto">View locations <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-4">
+        <article class="home-highlight h-100">
+          <div class="d-flex flex-column h-100">
+            <h3 class="h4 text-danger">Nine programs</h3>
+            <p class="flex-grow-1">Choose from Full Body, Fight, Yoga, Stretching and five other programs. See every option and the indicative prices before planning your visit.</p>
+            <a id="home-services-link" href="services.html#services-grid" class="home-link mt-auto">Explore programs <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-4">
+        <article class="home-highlight h-100">
+          <div class="d-flex flex-column h-100">
+            <h3 class="h4 text-danger">Meet the trainers</h3>
+            <p class="flex-grow-1">Browse five trainer profiles, then choose a preferred trainer, program, branch, date and start time in the visit planner.</p>
+            <a id="home-trainers-link" href="trainers.html#trainers-grid" class="home-link mt-auto">Meet the team <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="bg-black border-top border-danger py-4 mt-5">
-  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-    <p class="mb-0 text-center text-md-start">Contact: <a href="tel:+77783457405" class="text-danger text-decoration-none">+7‒778‒345‒74‒05</a> | Astana, Kazakhstan | &copy; 2026 Student Project</p>
-
-    <ul class="social-links list-unstyled d-flex gap-4 mb-0">
-      <li>
-        <a href="https://www.instagram.com/experience.fitness.kz/" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none d-flex align-items-center gap-2">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-          </svg>
-          <span class="d-none d-sm-inline">Instagram</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://go.2gis.com/pCgUS" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none d-flex align-items-center gap-2">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span class="d-none d-sm-inline">2GIS</span>
-        </a>
-      </li>
+  <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+    <p class="mb-0 text-center text-lg-start">&copy; 2026 Experience Fitness Astana · Student Project<br>
+      <a href="tel:+77783457405" class="text-danger">+7 778 345 74 05</a> · Astana, Kazakhstan</p>
+    <ul class="social-links list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+      <li><a href="https://www.instagram.com/experience.fitness.kz/" target="_blank" rel="noopener noreferrer" class="text-light">Instagram</a></li>
+      <li><a href="https://go.2gis.com/pCgUS" target="_blank" rel="noopener noreferrer" class="text-light">2GIS</a></li>
+      <li><a href="contact.html" class="text-light">Contact</a></li>
     </ul>
   </div>
 </footer>

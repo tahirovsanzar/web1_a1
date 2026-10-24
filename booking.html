@@ -3,90 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Request a training or group-class appointment at Experience Fitness Astana.">
+  <meta name="description" content="Plan a training or group-class visit at Experience Fitness Astana.">
   <meta name="author" content="Tahirov Sanzharbek, Meirzhan Zhaumytbay, Bekzat Kaliev">
   <title>Experience Fitness Astana | Training Booking</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/meyirzhan.css">
+  <link rel="stylesheet" href="css/meirzhan.css">
 </head>
 <body class="bg-dark text-light">
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-danger">
+  <a class="visually-hidden-focusable" href="#main-content">Skip to content</a>
+  <nav class="navbar navbar-dark bg-black border-bottom border-danger" aria-label="Main navigation">
     <div class="container-fluid px-md-4">
       <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link text-light" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="colophon.html">Colophon</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link active text-danger" href="booking.html">Booking</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="trainers.html">Training</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
+      <details class="site-menu" id="main-menu" open>
+        <summary class="btn btn-outline-danger" id="menu-toggle">Menu</summary>
+        <ul class="navbar-nav flex-row flex-wrap gap-2" id="main-nav">
+          <li class="nav-item"><a id="nav-index" class="nav-link text-light" href="index.html">Home</a></li>
+          <li class="nav-item"><a id="nav-about" class="nav-link text-light" href="about.html">About</a></li>
+          <li class="nav-item"><a id="nav-gallery" class="nav-link text-light" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a id="nav-services" class="nav-link text-light" href="services.html">Services</a></li>
+          <li class="nav-item"><a id="nav-booking" class="nav-link active text-danger" aria-current="page" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a id="nav-trainers" class="nav-link text-light" href="trainers.html">Training</a></li>
+          <li class="nav-item"><a id="nav-contact" class="nav-link text-light" href="contact.html">Contact</a></li>
         </ul>
-      </div>
+      </details>
     </div>
   </nav>
 </header>
 
-<main class="container py-5">
-  <h1 class="text-danger display-5 fw-bold mb-5 text-center">Request a training appointment</h1>
+<main id="main-content" class="container py-5">
+  <h1 class="text-danger display-5 fw-bold mb-5 text-center">Plan your training visit</h1>
 
   <section class="position-relative bg-black p-4 p-md-5 rounded border border-danger shadow">
 
-    <span class="position-absolute top-0 end-0 badge bg-danger fs-6 mt-3 me-3 shadow">NEW</span>
-
     <div class="row">
-      <div class="col-12 col-lg-5 mb-4 mb-lg-0 pr-lg-4">
+      <div class="col-12 col-lg-5 mb-4 mb-lg-0 pe-lg-4">
         <h2 class="h3 text-danger">Plan your first session</h2>
-        <p class="text-light">This request form helps a visitor organize the details needed for a training appointment. It is useful to state whether you want a gym introduction, a personal training session or a group class. Tell the club about any health limitations before beginning an activity. A qualified professional can then advise whether the selected class and intensity are appropriate.</p>
-        <p class="text-light">Choose a date and branch that work for you, but remember that a submitted request is not a confirmed reservation. Reception must check trainer availability and the current club timetable. If you are new to exercise, begin at a comfortable level. A short, safe session is a better foundation than trying to complete a difficult program on day one.</p>
+        <p class="text-light">Choose one of the nine programs listed on our <a href="services.html" class="text-danger">services page</a>, then select a branch, date and exact start time. You can also choose a preferred trainer from the five profiles on the <a href="trainers.html" class="text-danger">training page</a>.</p>
+        <p class="text-light" id="booking-help">This form is a session planner. It does not send a reservation or take payment. The review button leads to the result area below. To arrange an actual visit, call <a href="tel:+77783457405" class="text-danger">+7 778 345 74 05</a>. Prices are <a href="services.html#price-list" class="text-danger">indicative estimates</a>.</p>
       </div>
 
       <div class="col-12 col-lg-7">
-        <form id="booking-form" class="bg-black p-4 rounded border border-danger shadow">
+        <form action="booking.html#booking-confirmation" method="get" aria-describedby="booking-help" id="booking-form" class="bg-black p-4 rounded border border-danger shadow">
           <div class="mb-3">
             <label for="booking-name" class="form-label text-light">Full Name</label>
-            <input type="text" class="form-control" id="booking-name" placeholder="Enter your name">
+            <input type="text" class="form-control" id="booking-name" name="name" autocomplete="name" maxlength="100" required aria-describedby="booking-name-error">
+            <p id="booking-name-error" class="error hidden small mt-1">Enter your full name.</p>
           </div>
 
           <div class="mb-3">
             <label for="booking-location" class="form-label text-light">Select Location</label>
-            <select class="form-select" id="booking-location">
+            <select class="form-select" id="booking-location" name="location" required aria-describedby="booking-location-error">
               <option value="" selected disabled>Choose a club...</option>
               <option value="imanbayeva">Sholpan Imanbayeva Street 8/2</option>
               <option value="asfendiyarov">Sanjar Asfendiyarov Street 6</option>
             </select>
+            <p id="booking-location-error" class="error hidden small mt-1">Choose a club location.</p>
           </div>
 
           <div class="mb-3">
             <label for="booking-service" class="form-label text-light">Select Service</label>
-            <select class="form-select" id="booking-service">
-              <option value="" selected disabled>Choose a service...</option>
-              <option value="gym">Gym Day Pass</option>
-              <option value="pt">Personal Training</option>
-              <option value="group">Group Class</option>
+            <select class="form-select" id="booking-service" name="service" required aria-describedby="booking-service-error">
+              <option value="" selected disabled>Choose a program...</option>
+              <option value="full-body">Full Body</option>
+              <option value="fight">Fight</option>
+              <option value="yoga">Yoga</option>
+              <option value="healthy-posture">Healthy Posture</option>
+              <option value="strip-plastic">Strip Plastic</option>
+              <option value="workout-school">Workout School</option>
+              <option value="stretching">Stretching</option>
+              <option value="strength-flexibility">Strength and Flexibility</option>
+              <option value="functional">Functional Training</option>
             </select>
+            <p id="booking-service-error" class="error hidden small mt-1">Choose a program.</p>
           </div>
 
           <div class="mb-3">
             <label for="booking-date" class="form-label text-light">Preferred Date</label>
-            <input type="date" class="form-control" id="booking-date">
+            <input type="date" class="form-control" id="booking-date" name="date" required aria-describedby="booking-date-help booking-date-error">
+            <p id="booking-date-error" class="error hidden small mt-1">Choose a future opening day; Sunday is closed.</p>
+            <p id="booking-date-help" class="form-text text-light">Choose a future date within the branch opening hours; see <a href="about.html#visit-tips" class="text-danger">the schedule</a>.</p>
           </div>
 
-          <button type="submit" id="submit-booking-btn" class="btn btn-danger w-100">Request Appointment</button>
-
-          <div id="booking-confirmation" class="alert alert-success d-none mt-3 mb-0" role="alert">
+          <div class="mb-3">
+            <label for="booking-time" class="form-label">Preferred start time (Astana, UTC+5)</label>
+            <input type="time" id="booking-time" name="time" class="form-control" min="07:00" max="22:30" step="1800" required aria-describedby="booking-time-help booking-time-error">
+            <p id="booking-time-error" class="error hidden small mt-1">Choose a start time in 30-minute steps within the opening hours.</p>
           </div>
+          <p id="booking-time-help" class="form-text text-light">Choose an exact start time in 30-minute steps, for example 10:00 or 10:30. Monday–Friday: 07:00–22:30; Saturday: 09:00–21:30; Sunday: closed. Listed opening hours must be confirmed with the club.</p>
+          <div class="mb-3" id="booking-trainer-container">
+            <label for="booking-trainer" class="form-label">Preferred trainer (optional)</label>
+            <select id="booking-trainer" name="trainer" class="form-select" aria-describedby="booking-trainer-error">
+              <option value="any">No preference / not applicable</option>
+              <option value="sokolovskiy">Sokolovskiy</option><option value="sama">Sama</option>
+              <option value="anna">Anna</option><option value="ulzhan">Ulzhan</option><option value="iskazzzin">Iskazzzin</option>
+            </select>
+            <p id="booking-trainer-error" class="error hidden small mt-1">Choose a trainer or no preference.</p>
+          </div>
+          <div class="mb-3">
+            <label for="booking-notes" class="form-label">Session goal (optional)</label>
+            <textarea id="booking-notes" name="notes" rows="3" maxlength="1000" class="form-control" aria-describedby="booking-notes-error"></textarea>
+            <p id="booking-notes-error" class="error hidden small mt-1">Keep the session goal within 1,000 characters.</p>
+          </div>
+          <p class="small">All fields are required except trainer and session goal. Your form entries are not saved by this site.</p>
+          <button type="submit" id="submit-booking-btn" class="btn btn-danger w-100">Review session plan</button>
+
+          <section id="booking-confirmation" class="result-panel border border-secondary rounded p-3 mt-4" aria-labelledby="booking-result-heading">
+            <h3 id="booking-result-heading" class="h5 text-danger">Session plan result</h3>
+            <p id="booking-status" role="status">No reservation has been sent. Keep your selected details and contact the club to arrange your visit.</p>
+            <div id="booking-summary" aria-live="polite"></div>
+            <p id="booking-total" class="mb-2">Estimated cost: see the <a class="text-danger" href="services.html#price-list">price table</a>. Nothing is payable here.</p>
+            <div id="booking-errors" class="error" role="alert"></div>
+            <p id="booking-success" class="success hidden">Your session plan is ready. No payment or reservation has been made.</p>
+            <a id="booking-next-step" href="tel:+77783457405" class="btn btn-outline-danger">Call the club</a>
+          </section>
         </form>
       </div>
     </div>
@@ -94,9 +128,15 @@
   </section>
 </main>
 
-<footer class="bg-black border-top border-danger py-4 mt-5 text-center">
-  <div class="container">
-    <p class="mb-0 text-light">&copy; 2026 Student Project | <a href="tel:+77783457405" class="text-danger text-decoration-none">Call the club</a></p>
+<footer class="bg-black border-top border-danger py-4 mt-5">
+  <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+    <p class="mb-0 text-center text-lg-start">&copy; 2026 Experience Fitness Astana · Student Project<br>
+      <a href="tel:+77783457405" class="text-danger">+7 778 345 74 05</a> · Astana, Kazakhstan</p>
+    <ul class="social-links list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+      <li><a href="https://www.instagram.com/experience.fitness.kz/" target="_blank" rel="noopener noreferrer" class="text-light">Instagram</a></li>
+      <li><a href="https://go.2gis.com/pCgUS" target="_blank" rel="noopener noreferrer" class="text-light">2GIS</a></li>
+      <li><a href="contact.html" class="text-light">Contact</a></li>
+    </ul>
   </div>
 </footer>
 </body>

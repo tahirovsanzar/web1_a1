@@ -1,0 +1,35 @@
+{
+  "404.html": {
+    "version": "26.10.12",
+    "messages": []
+  },
+  "about.html": {
+    "version": "26.10.12",
+    "messages": [],
+    "language": "en"
+  },
+  "booking.html": {
+    "version": "26.10.12",
+    "messages": []
+  },
+  "contact.html": {
+    "version": "26.10.12",
+    "messages": []
+  },
+  "gallery.html": {
+    "version": "26.10.12",
+    "messages": []
+  },
+  "index.html": {
+    "version": "26.10.12",
+    "messages": []
+  },
+  "services.html": {
+    "version": "26.10.12",
+    "messages": []
+  },
+  "trainers.html": {
+    "version": "26.10.12",
+    "messages": []
+  }
+}

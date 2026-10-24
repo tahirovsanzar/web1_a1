@@ -1,9 +1,1 @@
-.card-text {
-  transition: transform 0.3s ease, color 0.3s ease;
-  display: inline-block;
-}
-
-.card-text:hover {
-  transform: scale(1.05);
-  color: white !important;
-}
+/* Page layout uses Bootstrap; shared gallery styles are in base.css. */

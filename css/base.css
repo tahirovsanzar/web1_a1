@@ -1,40 +1,33 @@
-body {
-  font-family: 'Arial', sans-serif;
-  letter-spacing: 0.5px;
+/* Bootstrap supplies layout; these are shared visual corrections and future states. */
+body { font-family: Arial, sans-serif; letter-spacing: .3px; }
+h1, h2, h3, h4, .navbar-brand { font-family: Impact, "Arial Black", sans-serif; text-transform: uppercase; font-weight: 700; }
+.navbar-brand { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+.site-menu { width: 100%; }
+.site-menu summary { width: fit-content; margin-block: .5rem; cursor: pointer; }
+.site-menu .nav-link { padding: .5rem .65rem; }
+.site-menu .active { border-bottom: 2px solid currentColor; }
+@media (min-width: 1200px) {
+  .site-menu { width: auto; }
+  .site-menu summary { display: none; }
+  .site-menu > #main-nav { display: flex; }
 }
-
-h1, h2, h3, h4, .navbar-brand {
-  font-family: 'Impact', 'Arial Black', sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-a {
-  transition: color 0.3s ease;
-}
-
-a:hover, a:focus {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-.social-links a {
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover,
-.social-links a:focus {
-  color: #FFD700;
-}
-
-.navbar-brand {
-  transition: transform 0.3s ease, color 0.3s ease;
-  display: inline-block;
-}
-
-.navbar-brand:hover {
-  transform: scale(1.08);
-  color: #FFFFFF;
-  cursor: default;
-
-}
+a { overflow-wrap: anywhere; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 3px solid #ffcb66; outline-offset: 4px; }
+.card { color: inherit; }
+.card-img-top { width: 100%; height: 250px; object-fit: cover; }
+.gallery-preview { padding: 0; border: 0; background: transparent; width: 100%; }
+.gallery-preview:disabled { cursor: default; opacity: 1; }
+dialog { max-width: min(92vw, 1000px); max-height: 92vh; }
+dialog::backdrop { background: rgb(0 0 0 / 85%); }
+.gallery-full-image { max-height: 65vh; object-fit: contain; }
+.hidden, [hidden] { display: none !important; }
+.active { font-weight: 700; }
+.selected { outline: 3px solid #ffcb66; outline-offset: 2px; }
+.error { color: #ffb7bf; border-color: #dc3545 !important; }
+.success { color: #a3e5c7; border-color: #198754 !important; }
+.form-control.error, .form-select.error { color: #842029; background-color: #fff0f1; }
+.form-control.success, .form-select.success { color: #0f5132; background-color: #effff7; }
+.text-secondary { color: #adb5bd !important; }
+:target { scroll-margin-top: 1rem; }
+.result-panel:target { outline: 2px solid #ffcb66; outline-offset: 5px; }

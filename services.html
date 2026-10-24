@@ -7,8 +7,7 @@
   <meta name="author" content="Tahirov Sanzharbek, Meirzhan Zhaumytbay, Bekzat Kaliev">
   <title>Experience Fitness Astana | Services</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/meirzhan.css">
@@ -16,37 +15,35 @@
 <body class="bg-dark text-light">
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-danger">
+  <a class="visually-hidden-focusable" href="#main-content">Skip to content</a>
+  <nav class="navbar navbar-dark bg-black border-bottom border-danger" aria-label="Main navigation">
     <div class="container-fluid px-md-4">
       <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link text-light" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="colophon.html">Colophon</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link active text-danger" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="booking.html">Booking</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="trainers.html">Training</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
+      <details class="site-menu" id="main-menu" open>
+        <summary class="btn btn-outline-danger" id="menu-toggle">Menu</summary>
+        <ul class="navbar-nav flex-row flex-wrap gap-2" id="main-nav">
+          <li class="nav-item"><a id="nav-index" class="nav-link text-light" href="index.html">Home</a></li>
+          <li class="nav-item"><a id="nav-about" class="nav-link text-light" href="about.html">About</a></li>
+          <li class="nav-item"><a id="nav-gallery" class="nav-link text-light" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a id="nav-services" class="nav-link active text-danger" aria-current="page" href="services.html">Services</a></li>
+          <li class="nav-item"><a id="nav-booking" class="nav-link text-light" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a id="nav-trainers" class="nav-link text-light" href="trainers.html">Training</a></li>
+          <li class="nav-item"><a id="nav-contact" class="nav-link text-light" href="contact.html">Contact</a></li>
         </ul>
-      </div>
+      </details>
     </div>
   </nav>
 </header>
 
-<main class="container py-5">
+<main id="main-content" class="container py-5">
   <h1 class="text-danger display-5 fw-bold mb-5 text-center">Services and activities</h1>
 
   <section class="mb-5" id="services-intro">
     <h2 class="h3 text-danger">Choose an activity for your goal</h2>
-    <p class="lead">Experience Fitness locations are listed with a gym, cardio training and group sessions. The published activity lists include yoga, stretching, functional training, healthy-back classes, power aerobics, upper body and lower body sessions. These options can serve different goals: a gym workout can develop strength, cardio can support endurance and a group class can add routine and instruction.</p>
+    <p class="lead page-intro">Choose from nine programs: Full Body, Fight, Yoga, Healthy Posture, Strip Plastic, Workout School, Stretching, Strength and Flexibility, and Functional Training. Select your program on the booking page, along with a preferred trainer, branch, date and start time.</p>
   </section>
 
-  <section class="row g-4" id="services-grid">
+  <div class="row g-4" id="services-grid">
 
     <div class="col-12 col-md-4">
       <article class="card bg-black border-danger h-100 shadow d-flex flex-column">
@@ -55,9 +52,9 @@
           <ol start="1" class="text-light mt-3 mb-4 flex-grow-1">
             <li class="mb-2">Ask reception about the current timetable.</li>
             <li class="mb-2">Take a short tour of the gym and changing room.</li>
-            <li class="mb-2">Try a beginner-friendly session or book an introduction.</li>
+            <li class="mb-2">Choose one of our nine programs for your first session.</li>
           </ol>
-          <a href="booking.html" id="btn-book-intro" class="btn btn-outline-danger w-100 mt-auto">Book an Introduction</a>
+          <a href="booking.html#booking-service" id="btn-book-intro" class="btn btn-outline-danger w-100 mt-auto">Choose a Program</a>
         </div>
       </article>
     </div>
@@ -68,17 +65,17 @@
           <h2 class="card-title h5 text-danger">Our Programs</h2>
           <p class="text-light mt-2">Choose a workout for your goals:</p>
           <ul class="text-light list-unstyled flex-grow-1 mb-4">
-            <li>✔️ Full Body</li>
-            <li>✔️ Fight</li>
-            <li>✔️ Yoga</li>
-            <li>✔️ Healthy Posture</li>
-            <li>✔️ Strip Plastic</li>
-            <li>✔️ Workout School</li>
-            <li>✔️ Stretching</li>
-            <li>✔️ Strength and Flexibility</li>
-            <li>✔️ Functional Training</li>
+            <li><a id="program-full-body" href="booking.html#booking-service" data-service="full-body" class="text-light">Full Body</a></li>
+            <li><a id="program-fight" href="booking.html#booking-service" data-service="fight" class="text-light">Fight</a></li>
+            <li><a id="program-yoga" href="booking.html#booking-service" data-service="yoga" class="text-light">Yoga</a></li>
+            <li><a id="program-healthy-posture" href="booking.html#booking-service" data-service="healthy-posture" class="text-light">Healthy Posture</a></li>
+            <li><a id="program-strip-plastic" href="booking.html#booking-service" data-service="strip-plastic" class="text-light">Strip Plastic</a></li>
+            <li><a id="program-workout-school" href="booking.html#booking-service" data-service="workout-school" class="text-light">Workout School</a></li>
+            <li><a id="program-stretching" href="booking.html#booking-service" data-service="stretching" class="text-light">Stretching</a></li>
+            <li><a id="program-strength-flexibility" href="booking.html#booking-service" data-service="strength-flexibility" class="text-light">Strength and Flexibility</a></li>
+            <li><a id="program-functional" href="booking.html#booking-service" data-service="functional" class="text-light">Functional Training</a></li>
           </ul>
-          <a href="booking.html" id="btn-book-program" class="btn btn-danger w-100 mt-auto">Book a Program</a>
+          <a href="booking.html#booking-service" id="btn-book-program" class="btn btn-danger w-100 mt-auto">Book a Program</a>
         </div>
       </article>
     </div>
@@ -102,12 +99,45 @@
       </article>
     </div>
 
+  </div>
+
+  <section id="price-list" class="mt-5" aria-labelledby="prices-heading">
+    <h2 id="prices-heading" class="h3 text-danger">Indicative prices</h2>
+    <p id="price-note">Editable estimates in KZT based on comparable Astana clubs, checked 15 October 2026. These are not official Experience Fitness prices. Confirm the actual tariff before a visit. <a href="#price-sources" class="text-danger">Comparison sources</a>.</p>
+    <details id="price-sources" class="mb-3">
+      <summary>Comparison sources</summary>
+      <p class="mt-2">The indicative per-session estimate is based on single-visit prices from <a href="https://goldenfalcon-astana.kz/prices" class="text-danger" target="_blank" rel="noopener noreferrer">Golden Falcon Astana</a> and <a href="https://rai-studio.kz/" class="text-danger" target="_blank" rel="noopener noreferrer">RAI Studio</a>. Offers and facilities differ; these are not official Experience Fitness tariffs.</p>
+    </details>
+    <div class="table-responsive">
+      <table class="table table-dark table-striped table-bordered align-middle">
+        <caption class="text-light">Estimated cost for one visitor. No online payment is taken.</caption>
+        <thead><tr><th scope="col">Service</th><th scope="col">Duration</th><th scope="col">Estimate</th><th scope="col">Next step</th></tr></thead>
+        <tbody>
+        <tr><th scope="row">Full Body</th><td>One session</td><td id="price-full-body">5,000 KZT</td><td><a id="book-full-body" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="full-body">Choose Full Body</a></td></tr>
+        <tr><th scope="row">Fight</th><td>One session</td><td id="price-fight">5,000 KZT</td><td><a id="book-fight" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="fight">Choose Fight</a></td></tr>
+        <tr><th scope="row">Yoga</th><td>One session</td><td id="price-yoga">5,000 KZT</td><td><a id="book-yoga" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="yoga">Choose Yoga</a></td></tr>
+        <tr><th scope="row">Healthy Posture</th><td>One session</td><td id="price-healthy-posture">5,000 KZT</td><td><a id="book-healthy-posture" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="healthy-posture">Choose Healthy Posture</a></td></tr>
+        <tr><th scope="row">Strip Plastic</th><td>One session</td><td id="price-strip-plastic">5,000 KZT</td><td><a id="book-strip-plastic" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="strip-plastic">Choose Strip Plastic</a></td></tr>
+        <tr><th scope="row">Workout School</th><td>One session</td><td id="price-workout-school">5,000 KZT</td><td><a id="book-workout-school" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="workout-school">Choose Workout School</a></td></tr>
+        <tr><th scope="row">Stretching</th><td>One session</td><td id="price-stretching">5,000 KZT</td><td><a id="book-stretching" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="stretching">Choose Stretching</a></td></tr>
+        <tr><th scope="row">Strength and Flexibility</th><td>One session</td><td id="price-strength-flexibility">5,000 KZT</td><td><a id="book-strength-flexibility" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="strength-flexibility">Choose Strength and Flexibility</a></td></tr>
+        <tr><th scope="row">Functional Training</th><td>One session</td><td id="price-functional">5,000 KZT</td><td><a id="book-functional" href="booking.html#booking-service" class="btn btn-outline-danger btn-sm" data-service="functional">Choose Functional Training</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="services-results" aria-live="polite"></div>
   </section>
 </main>
 
-<footer class="bg-black border-top border-danger py-4 mt-5 text-center">
-  <div class="container">
-    <p class="mb-0 text-light">&copy; 2026 Student Project | <a href="booking.html" class="text-danger text-decoration-none">Book a session</a></p>
+<footer class="bg-black border-top border-danger py-4 mt-5">
+  <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+    <p class="mb-0 text-center text-lg-start">&copy; 2026 Experience Fitness Astana · Student Project<br>
+      <a href="tel:+77783457405" class="text-danger">+7 778 345 74 05</a> · Astana, Kazakhstan</p>
+    <ul class="social-links list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+      <li><a href="https://www.instagram.com/experience.fitness.kz/" target="_blank" rel="noopener noreferrer" class="text-light">Instagram</a></li>
+      <li><a href="https://go.2gis.com/pCgUS" target="_blank" rel="noopener noreferrer" class="text-light">2GIS</a></li>
+      <li><a href="contact.html" class="text-light">Contact</a></li>
+    </ul>
   </div>
 </footer>
 </body>

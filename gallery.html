@@ -7,8 +7,7 @@
   <meta name="author" content="Tahirov Sanzharbek, Meirzhan Zhaumytbay, Bekzat Kaliev">
   <title>Experience Fitness Astana | Photo Gallery</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/sanzharbek.css">
@@ -16,119 +15,117 @@
 <body class="bg-dark text-light">
 
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-black border-bottom border-danger">
+  <a class="visually-hidden-focusable" href="#main-content">Skip to content</a>
+  <nav class="navbar navbar-dark bg-black border-bottom border-danger" aria-label="Main navigation">
     <div class="container-fluid px-md-4">
       <a class="navbar-brand text-danger fw-bold" href="index.html">EXPERIENCE FITNESS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="mainNav">
-        <ul class="navbar-nav gap-2">
-          <li class="nav-item"><a class="nav-link text-light" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="colophon.html">Colophon</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link active text-danger" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="booking.html">Booking</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="trainers.html">Training</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="contact.html">Contact</a></li>
+      <details class="site-menu" id="main-menu" open>
+        <summary class="btn btn-outline-danger" id="menu-toggle">Menu</summary>
+        <ul class="navbar-nav flex-row flex-wrap gap-2" id="main-nav">
+          <li class="nav-item"><a id="nav-index" class="nav-link text-light" href="index.html">Home</a></li>
+          <li class="nav-item"><a id="nav-about" class="nav-link text-light" href="about.html">About</a></li>
+          <li class="nav-item"><a id="nav-gallery" class="nav-link active text-danger" aria-current="page" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a id="nav-services" class="nav-link text-light" href="services.html">Services</a></li>
+          <li class="nav-item"><a id="nav-booking" class="nav-link text-light" href="booking.html">Booking</a></li>
+          <li class="nav-item"><a id="nav-trainers" class="nav-link text-light" href="trainers.html">Training</a></li>
+          <li class="nav-item"><a id="nav-contact" class="nav-link text-light" href="contact.html">Contact</a></li>
         </ul>
-      </div>
+      </details>
     </div>
   </nav>
 </header>
 
-<main class="container py-5">
+<main id="main-content" class="container py-5">
   <div class="text-center mb-5">
     <h1 class="text-danger display-5 fw-bold mb-3">Photo Gallery</h1>
     <h2 class="h4 text-danger">Explore Our Club Facilities</h2>
-    <p class="lead mx-auto" style="max-width: 800px;">Take a look at the training zones, modern equipment, and comfortable spaces available at Experience Fitness in Astana. Every zone is designed to provide the best environment for your fitness journey.</p>
+    <p class="lead page-intro mx-auto" style="max-width: 800px;">Take a look at the training zones, modern equipment, and comfortable spaces available at Experience Fitness in Astana. Every zone is designed to provide the best environment for your fitness journey.</p>
   </div>
 
-  <section id="gallery-grid" class="row g-4 justify-content-center">
+  <div id="gallery-grid" class="row g-4 justify-content-center">
     <article class="col-12 col-md-6 col-lg-4">
       <div class="card bg-black border-danger h-100 shadow">
-        <img src="img/gym-floor.jpg" class="card-img-top" alt="Main gym floor equipped with modern exercise machines and weights at Experience Fitness Astana">
-        <div class="card-body d-flex flex-column">
-          <h3 class="card-title h5 text-danger">Gym Floor and Equipment</h3>
-          <p class="card-text text-light flex-grow-1">Our spacious workout areas feature modern strength and cardio machines suited for all levels of experience.</p>
-          <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Main gym floor and strength training zone</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="col-12 col-md-6 col-lg-4">
-      <div class="card bg-black border-danger h-100 shadow">
-        <img src="img/studio.jpg" class="card-img-top" alt="Bright and spacious group fitness studio with fitness mats and equipment">
-        <div class="card-body d-flex flex-column">
-          <h3 class="card-title h5 text-danger">Group Class Studio</h3>
-          <p class="card-text text-light flex-grow-1">Dedicated space for yoga, stretching, and high-intensity functional group workouts.</p>
-          <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Group fitness and yoga studio</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="col-12 col-md-6 col-lg-4">
-      <div class="card bg-black border-danger h-100 shadow">
-        <img src="img/spa.jpg" class="card-img-top" alt="Clean and comfortable relaxation and spa zone after workout">
-        <div class="card-body d-flex flex-column">
-          <h3 class="card-title h5 text-danger">Relaxation Area</h3>
-          <p class="card-text text-light flex-grow-1">Post-workout recovery zones including sauna facilities to help you unwind and recharge.</p>
-          <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Sauna and recovery wellness zone</p>
-        </div>
+        <button id="gallery-preview-1" type="button" class="gallery-preview" data-image="img/gym-floor.jpg" aria-label="Preview club reception" aria-controls="gallery-modal" disabled>
+          <img id="gallery-image-1" src="img/gym-floor.jpg" class="card-img-top" alt="Reception desk and Experience Fitness sign" width="600" height="400" loading="lazy">
+        </button>
+        <div class="card-body"><h3 class="card-title h5 text-danger">Club reception</h3><p class="card-text text-light">The reception area where visitors arrive and ask about membership.</p></div>
       </div>
     </article>
     <article class="col-12 col-md-6 col-lg-4">
       <div class="card bg-black border-danger h-100 shadow">
-        <img src="img/img_3.png"  class="card-img-top" alt="Bright and spacious group fitness studio with fitness mats and equipment"><img/>
-        <div class="card-body d-flex flex-column">
-          <h3 class="card-title h5 text-danger">Group Class Studio</h3>
-          <p class="card-text text-light flex-grow-1">Dedicated space for yoga, stretching, and high-intensity functional group workouts.</p>
-          <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Group fitness and yoga studio</p>
-        </div>
+        <button id="gallery-preview-2" type="button" class="gallery-preview" data-image="img/studio.jpg" aria-label="Preview cardio area" aria-controls="gallery-modal" disabled>
+          <img id="gallery-image-2" src="img/studio.jpg" class="card-img-top" alt="Treadmills beside the club windows" width="600" height="400" loading="lazy">
+        </button>
+        <div class="card-body"><h3 class="card-title h5 text-danger">Cardio area</h3><p class="card-text text-light">Cardio machines arranged beside the windows.</p></div>
       </div>
-    </article><article class="col-12 col-md-6 col-lg-4">
-    <div class="card bg-black border-danger h-100 shadow">
-      <img src="img/img_2.png"  class="card-img-top" alt="Bright and spacious group fitness studio with fitness mats and equipment"><img/>
-      <div class="card-body d-flex flex-column">
-        <h3 class="card-title h5 text-danger">Group Class Studio</h3>
-        <p class="card-text text-light flex-grow-1">Dedicated space for yoga, stretching, and high-intensity functional group workouts.</p>
-        <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Group fitness and yoga studio</p>
+    </article>
+    <article class="col-12 col-md-6 col-lg-4">
+      <div class="card bg-black border-danger h-100 shadow">
+        <button id="gallery-preview-3" type="button" class="gallery-preview" data-image="img/spa.jpg" aria-label="Preview changing and shower area" aria-controls="gallery-modal" disabled>
+          <img id="gallery-image-3" src="img/spa.jpg" class="card-img-top" alt="Changing area with a bench and shower cubicles" width="600" height="400" loading="lazy">
+        </button>
+        <div class="card-body"><h3 class="card-title h5 text-danger">Changing and shower area</h3><p class="card-text text-light">The changing and shower facilities shown in the project photographs.</p></div>
       </div>
-    </div>
-  </article><article class="col-12 col-md-6 col-lg-4">
-    <div class="card bg-black border-danger h-100 shadow">
-      <img src="img/img.png" height="500" width="537" class="card-img-top" alt="Bright and spacious group fitness studio with fitness mats and equipment"><img/>
-      <div class="card-body d-flex flex-column">
-        <h3 class="card-title h5 text-danger">Group Class Studio</h3>
-        <p class="card-text text-light flex-grow-1">Dedicated space for yoga, stretching, and high-intensity functional group workouts.</p>
-        <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Group fitness and yoga studio</p>
+    </article>
+    <article class="col-12 col-md-6 col-lg-4">
+      <div class="card bg-black border-danger h-100 shadow">
+        <button id="gallery-preview-4" type="button" class="gallery-preview" data-image="img/img_3.png" aria-label="Preview strength machines" aria-controls="gallery-modal" disabled>
+          <img id="gallery-image-4" src="img/img_3.png" class="card-img-top" alt="Strength machines on the gym floor" width="600" height="400" loading="lazy">
+        </button>
+        <div class="card-body"><h3 class="card-title h5 text-danger">Strength machines</h3><p class="card-text text-light">A view of the strength training equipment.</p></div>
       </div>
-    </div>
-  </article><article class="col-12 col-md-6 col-lg-4">
-    <div class="card bg-black border-danger h-100 shadow">
-      <img  src="img/img_1.png"  class="card-img-top" alt="Bright and spacious group fitness studio with fitness mats and equipment"><img/>
-
-      <div class="card-body d-flex flex-column">
-        <h3 class="card-title h5 text-danger">Group Class Studio</h3>
-        <p class="card-text text-light flex-grow-1">Dedicated space for yoga, stretching, and high-intensity functional group workouts.</p>
-        <p class="text-secondary small mb-0 mt-2 border-top border-secondary pt-2">Group fitness and yoga studio</p>
+    </article>
+    <article class="col-12 col-md-6 col-lg-4">
+      <div class="card bg-black border-danger h-100 shadow">
+        <button id="gallery-preview-5" type="button" class="gallery-preview" data-image="img/img_2.png" aria-label="Preview free weight area" aria-controls="gallery-modal" disabled>
+          <img id="gallery-image-5" src="img/img_2.png" class="card-img-top" alt="Gym benches and weight equipment beside windows" width="600" height="400" loading="lazy">
+        </button>
+        <div class="card-body"><h3 class="card-title h5 text-danger">Free weight area</h3><p class="card-text text-light">Benches and equipment in the free weight training area.</p></div>
       </div>
-    </div>
-  </article>
-
-  </section>
-  <div id="gallery-modal" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 z-3 justify-content-center align-items-center">
-    <div class="text-center position-relative">
-      <img id="modal-image" src="" alt="Full size preview" class="img-fluid max-vh-100 rounded shadow-lg border border-danger">
-      <button id="close-modal-btn" class="btn btn-danger position-absolute top-0 end-0 m-3">X</button>
-    </div>
+    </article>
+    <article class="col-12 col-md-6 col-lg-4">
+      <div class="card bg-black border-danger h-100 shadow">
+        <button id="gallery-preview-6" type="button" class="gallery-preview" data-image="img/img.png" aria-label="Preview weight training zone" aria-controls="gallery-modal" disabled>
+          <img id="gallery-image-6" src="img/img.png" class="card-img-top" alt="Weight machines and racks under coloured ceiling lights" width="600" height="400" loading="lazy">
+        </button>
+        <div class="card-body"><h3 class="card-title h5 text-danger">Weight training zone</h3><p class="card-text text-light">A second view of the weight training zone.</p></div>
+      </div>
+    </article>
+    <article class="col-12 col-md-6 col-lg-4">
+      <div class="card bg-black border-danger h-100 shadow">
+        <button id="gallery-preview-7" type="button" class="gallery-preview" data-image="img/img_1.png" aria-label="Preview training floor" aria-controls="gallery-modal" disabled>
+          <img id="gallery-image-7" src="img/img_1.png" class="card-img-top" alt="Wide view of gym machines and workout benches" width="600" height="400" loading="lazy">
+        </button>
+        <div class="card-body"><h3 class="card-title h5 text-danger">Training floor</h3><p class="card-text text-light">An overview of the gym floor and available equipment.</p></div>
+      </div>
+    </article>
   </div>
+  <div id="gallery-results" aria-live="polite"></div>
+  <dialog id="gallery-modal" class="bg-black text-light border border-danger rounded p-3" aria-labelledby="modal-title">
+    <h2 id="modal-title" class="h4 text-danger">Photo preview</h2>
+    <figure>
+      <img id="modal-image" src="img/gym-floor.jpg" alt="Club reception" class="img-fluid gallery-full-image rounded">
+      <figcaption id="modal-caption" class="mt-2">Club reception</figcaption>
+    </figure>
+    <div class="d-flex flex-wrap gap-2">
+      <button id="previous-image-btn" type="button" class="btn btn-outline-danger">Previous photo</button>
+      <button id="next-image-btn" type="button" class="btn btn-outline-danger">Next photo</button>
+      <form method="dialog"><button id="close-modal-btn" type="submit" class="btn btn-danger">Close preview</button></form>
+    </div>
+    <div id="gallery-errors" class="error" role="alert"></div>
+  </dialog>
+  <p class="mt-4">Explore the <a href="services.html" class="text-danger">available activities</a> or <a href="booking.html" class="text-danger">plan a visit</a>.</p>
 </main>
 
-<footer class="bg-black border-top border-danger py-4 mt-5 text-center">
-  <div class="container">
-    <p class="mb-0 text-light">&copy; 2026 Student Project | <a href="contact.html" class="text-danger text-decoration-none">Contact Experience Fitness</a></p>
+<footer class="bg-black border-top border-danger py-4 mt-5">
+  <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+    <p class="mb-0 text-center text-lg-start">&copy; 2026 Experience Fitness Astana · Student Project<br>
+      <a href="tel:+77783457405" class="text-danger">+7 778 345 74 05</a> · Astana, Kazakhstan</p>
+    <ul class="social-links list-unstyled d-flex flex-wrap justify-content-center gap-3 mb-0">
+      <li><a href="https://www.instagram.com/experience.fitness.kz/" target="_blank" rel="noopener noreferrer" class="text-light">Instagram</a></li>
+      <li><a href="https://go.2gis.com/pCgUS" target="_blank" rel="noopener noreferrer" class="text-light">2GIS</a></li>
+      <li><a href="contact.html" class="text-light">Contact</a></li>
+    </ul>
   </div>
 </footer>
 </body>
