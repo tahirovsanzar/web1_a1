@@ -1,1 +1,6 @@
-/* Page layout uses Bootstrap; shared gallery styles are in base.css. */
+/* Keep the shared site colors; simplify only the Home content. */
+.home-intro { background-color: #292e32; }
+.home-divider { border-color: #495057; opacity: 1; }
+.home-highlight { border-top: 1px solid #495057; padding-top: 1.5rem; }
+.home-link { color: #f0808a; font-weight: 700; text-decoration: none; }
+.home-link:hover { color: #fff; text-decoration: underline; }

@@ -1,7 +1,5 @@
 # Quality pass
 
-Automated and visual review performed on 15 October 2026 against the supplied midterm brief. This is an AI-assisted technical review; it does not stand in for the required teammate/device review two days before the deadline.
-
 ## Findings and fixes
 
 | Finding | Fix |
