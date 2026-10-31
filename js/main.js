@@ -1,6 +1,5 @@
 'use strict';
 
-// Existing midterm programme names and indicative per-visit prices.
 const programs = [
   { id: 'full-body', name: 'Full Body', category: 'Strength', price: 5000, duration: 'One session' },
   { id: 'fight', name: 'Fight', category: 'Combat', price: 5000, duration: 'One session' },
@@ -13,11 +12,11 @@ const programs = [
   { id: 'functional', name: 'Functional Training', category: 'Strength', price: 5000, duration: 'One session' }
 ];
 const trainers = [
-  { id: 'sokolovskiy', name: 'Sokolovskiy' },
-  { id: 'sama', name: 'Sama' },
-  { id: 'anna', name: 'Anna' },
-  { id: 'ulzhan', name: 'Ulzhan' },
-  { id: 'iskazzzin', name: 'Iskazzzin' }
+  { id: 'sokolovskiy', name: 'Sokolovskiy', programs: ['full-body', 'fight', 'workout-school', 'functional'] },
+  { id: 'sama', name: 'Sama', programs: ['yoga', 'healthy-posture', 'strip-plastic', 'stretching', 'strength-flexibility'] },
+  { id: 'anna', name: 'Anna', programs: ['full-body', 'yoga', 'healthy-posture', 'strip-plastic', 'stretching', 'strength-flexibility'] },
+  { id: 'ulzhan', name: 'Ulzhan', programs: ['yoga', 'healthy-posture', 'strip-plastic', 'stretching', 'strength-flexibility', 'functional'] },
+  { id: 'iskazzzin', name: 'Iskazzzin', programs: ['full-body', 'fight', 'workout-school', 'strength-flexibility', 'functional'] }
 ];
 const draftKey = 'experience-visit-plan';
 
