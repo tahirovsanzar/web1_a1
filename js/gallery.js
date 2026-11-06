@@ -1,4 +1,4 @@
-$(function () {
+window.Experience.jqueryReady.then(() => $(function () {
   'use strict';
   const $previews = $('#gallery-grid .gallery-preview');
   const $dialog = $('#gallery-modal');
@@ -33,4 +33,4 @@ $(function () {
     if (event.key === 'ArrowRight') { event.preventDefault(); showPhoto(current + 1); }
   });
   $dialog.on('close', function () { if ($opener) $opener.trigger('focus'); });
-});
+})).catch(() => {});

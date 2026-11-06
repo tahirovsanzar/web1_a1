@@ -79,5 +79,13 @@ function connectPlanLinks() {
   });
 }
 
-window.Experience = Object.freeze({ programs, trainers, element, money, findProgram, setFieldState, localDate, referenceNumber, readDraft, saveDraft });
-$(connectPlanLinks);
+const jqueryReady = window.jQuery ? Promise.resolve() : new Promise((resolve, reject) => {
+  const script = document.createElement('script');
+  script.src = 'https://code.jquery.com/jquery-3.7.1.min.js';
+  script.onload = resolve;
+  script.onerror = reject;
+  document.head.append(script);
+});
+
+window.Experience = Object.freeze({ programs, trainers, element, money, findProgram, setFieldState, localDate, referenceNumber, readDraft, saveDraft, jqueryReady });
+jqueryReady.then(() => $(connectPlanLinks)).catch(() => {});

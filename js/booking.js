@@ -1,4 +1,4 @@
-$(function () {
+window.Experience.jqueryReady.then(() => $(function () {
   'use strict';
   const { programs, trainers, findProgram, money, localDate, referenceNumber, readDraft, saveDraft } = window.Experience;
   const $form = $('#booking-form').prop('noValidate', true);
@@ -229,4 +229,4 @@ $(function () {
     updateSummary();
     $fields.name.trigger('focus');
   });
-});
+})).catch(() => {});
