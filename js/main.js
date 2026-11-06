@@ -56,32 +56,28 @@ function readDraft() {
 }
 function saveDraft(draft) {
   try { sessionStorage.setItem(draftKey, JSON.stringify(draft)); }
-  catch { /* Storage may be unavailable; the page still works. */ }
+  catch {}
 }
 function connectPlanLinks() {
-  document.querySelectorAll('a[data-service]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const service = link.dataset.service;
-      if (findProgram(service)) {
-        saveDraft({ ...readDraft(), service });
-        const destination = new URL(link.href);
-        destination.searchParams.set('service', service);
-        link.href = destination.href;
-      }
-    });
+  $('a[data-service]').on('click', function () {
+    const $link = $(this);
+    const service = $link.attr('data-service');
+    if (!findProgram(service)) return;
+    saveDraft({ ...readDraft(), service });
+    const destination = new URL($link.attr('href'), window.location.href);
+    destination.searchParams.set('service', service);
+    $link.attr('href', destination.href);
   });
-  document.querySelectorAll('a[id^="btn-book-"]').forEach((link) => {
-    const trainer = link.id.slice('btn-book-'.length);
-    if (trainers.some((person) => person.id === trainer)) {
-      link.addEventListener('click', () => {
-        saveDraft({ ...readDraft(), trainer });
-        const destination = new URL(link.href);
-        destination.searchParams.set('trainer', trainer);
-        link.href = destination.href;
-      });
-    }
+  $('a[id^="btn-book-"]').on('click', function () {
+    const $link = $(this);
+    const trainer = $link.attr('id').slice('btn-book-'.length);
+    if (!trainers.some((person) => person.id === trainer)) return;
+    saveDraft({ ...readDraft(), trainer });
+    const destination = new URL($link.attr('href'), window.location.href);
+    destination.searchParams.set('trainer', trainer);
+    $link.attr('href', destination.href);
   });
 }
 
 window.Experience = Object.freeze({ programs, trainers, element, money, findProgram, setFieldState, localDate, referenceNumber, readDraft, saveDraft });
-connectPlanLinks();
+$(connectPlanLinks);

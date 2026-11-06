@@ -1,6 +1,4 @@
-// Assignment 6 comparison copy. This file is deliberately not linked to a page.
 
-// Original plain JavaScript from js/about.js
 (() => {
 'use strict';
 const { element, readDraft, saveDraft } = window.Experience;
@@ -43,7 +41,6 @@ if (locations.some((location) => location.id === readDraft().location)) chooseBr
 })();
 
 
-// Original plain JavaScript from js/services.js
 (() => {
 'use strict';
 const { programs, element, money, referenceNumber, readDraft, saveDraft } = window.Experience;
@@ -216,7 +213,6 @@ renderCart();
 })();
 
 
-// Original plain JavaScript from js/contact.js
 (() => {
 'use strict';
 const { element, setFieldState } = window.Experience;

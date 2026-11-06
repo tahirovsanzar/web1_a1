@@ -1,39 +1,36 @@
-(() => {
+$(function () {
   'use strict';
-  const { element } = window.Experience;
-  const previews = [...document.querySelectorAll('#gallery-grid .gallery-preview')];
-  const dialog = document.getElementById('gallery-modal');
-  const image = document.getElementById('modal-image');
-  const caption = document.getElementById('modal-caption');
-  const results = document.getElementById('gallery-results');
+  const $previews = $('#gallery-grid .gallery-preview');
+  const $dialog = $('#gallery-modal');
+  const $image = $('#modal-image');
+  const $caption = $('#modal-caption');
   let current = 0;
-  let opener = null;
-  previews.forEach((button) => { button.disabled = false; });
-  const galleryStatus = element('p', 'mt-3', `${previews.length} club photographs. Select one to preview, then use Previous or Next.`);
-  galleryStatus.setAttribute('role', 'status');
-  results.append(galleryStatus);
+  let $opener = null;
+
+  $previews.prop('disabled', false);
+  const $galleryStatus = $('<p>', { class: 'mt-3', role: 'status',
+    text: `${$previews.length} club photographs. Select one to preview, then use Previous or Next.` });
+  $('#gallery-results').append($galleryStatus);
+
   function showPhoto(index) {
-    current = (index + previews.length) % previews.length;
-    const button = previews[current];
-    const thumbnail = button.querySelector('img');
-    image.src = button.dataset.image;
-    image.alt = thumbnail.alt;
-    caption.textContent = `${button.closest('article').querySelector('h3').textContent} · ${current + 1} of ${previews.length}`;
-    galleryStatus.textContent = `Viewing photograph ${current + 1} of ${previews.length}.`;
+    current = (index + $previews.length) % $previews.length;
+    const $button = $previews.eq(current);
+    $image.attr('src', $button.attr('data-image'))
+      .attr('alt', $button.find('img').attr('alt'));
+    $caption.text(`${$button.closest('article').find('h3').text()} · ${current + 1} of ${$previews.length}`);
+    $galleryStatus.text(`Viewing photograph ${current + 1} of ${$previews.length}.`);
   }
-  previews.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      opener = button;
-      showPhoto(index);
-      dialog.showModal();
-    });
+
+  $previews.on('click', function () {
+    $opener = $(this);
+    showPhoto($previews.index(this));
+    $dialog[0].showModal();
   });
-  document.getElementById('previous-image-btn').addEventListener('click', () => showPhoto(current - 1));
-  document.getElementById('next-image-btn').addEventListener('click', () => showPhoto(current + 1));
-  dialog.addEventListener('keydown', (event) => {
+  $('#previous-image-btn').on('click', function () { showPhoto(current - 1); });
+  $('#next-image-btn').on('click', function () { showPhoto(current + 1); });
+  $dialog.on('keydown', function (event) {
     if (event.key === 'ArrowLeft') { event.preventDefault(); showPhoto(current - 1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); showPhoto(current + 1); }
   });
-  dialog.addEventListener('close', () => { if (opener) opener.focus(); });
-
-})();
+  $dialog.on('close', function () { if ($opener) $opener.trigger('focus'); });
+});
