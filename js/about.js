@@ -7,6 +7,19 @@ $(function () {
   ];
   const $section = $('#locations');
   const $cards = $section.find('article');
+  const $hoursStatus = $('<p>', { class: 'mt-3 mb-0', role: 'status' });
+  $('#schedule dl').after($hoursStatus);
+  function updateHoursStatus() {
+    const astana = new Date(Date.now() + 5 * 60 * 60 * 1000);
+    const day = astana.getUTCDay();
+    const minutes = astana.getUTCHours() * 60 + astana.getUTCMinutes();
+    const start = day === 6 ? 9 * 60 : 7 * 60;
+    const end = day === 6 ? 22 * 60 : 23 * 60;
+    const open = day !== 0 && minutes >= start && minutes < end;
+    $hoursStatus.text(open ? 'Currently open (Astana time).' : 'Currently closed (Astana time).');
+  }
+  updateHoursStatus();
+  window.setInterval(updateHoursStatus, 60000);
   const mapSearches = {
     imanbayeva: 'Experience Fitness, Sholpan Imanbayeva Street 8/2, Astana',
     asfendiyarov: 'Experience Fitness, Sanjar Asfendiyarov Street 6, Astana'

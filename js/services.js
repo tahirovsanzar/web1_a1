@@ -1,35 +1,35 @@
 $(function () {
   'use strict';
-  const { programs, money, referenceNumber, readDraft, saveDraft } = window.Experience;
+  const { programs, money, readDraft, saveDraft } = window.Experience;
   const $priceSection = $('#price-list');
   const $tableBody = $priceSection.find('tbody');
   const $results = $('#services-results');
   const cart = new Map();
-  let currentReference = '';
 
   const $toggleFilters = $('<button>', { type: 'button', class: 'btn btn-outline-danger btn-sm mb-3',
     text: 'Hide filters', 'aria-controls': 'program-controls', 'aria-expanded': 'true' });
   const $controls = $('<div>', { id: 'program-controls', class: 'bg-black border border-danger rounded p-3 mb-3' });
-  const $controlRow = $('<div>', { class: 'row g-3' });
-  function controlColumn(labelText, $control) {
-    const $column = $('<div>', { class: 'col-12 col-md-6' });
-    $column.append($('<label>', { class: 'form-label', for: $control.attr('id'), text: labelText }), $control);
-    return $column;
-  }
   const $category = $('<select>', { id: 'program-category', class: 'form-select' });
   $category.append($('<option>', { value: '', text: 'All categories' }));
   [...new Set(programs.map((program) => program.category))].sort().forEach((name) => {
     $category.append($('<option>', { value: name, text: name }));
   });
-  const $sort = $('<select>', { id: 'program-sort', class: 'form-select' });
-  [['default', 'Original order'], ['name', 'Name A–Z'], ['category', 'Category A–Z']].forEach(([value, label]) => {
-    $sort.append($('<option>', { value: value, text: label }));
-  });
-  const $count = $('<p>', { id: 'program-count', class: 'mb-2 mt-3', role: 'status' });
   const $resetFilters = $('<button>', { id: 'program-reset', type: 'button',
     class: 'btn btn-outline-danger btn-sm', text: 'Reset filters' });
-  $controlRow.append(controlColumn('Category', $category), controlColumn('Sort by', $sort));
-  $controls.append($controlRow, $count, $resetFilters);
+  const goals = [
+    { label: 'All programs', category: '' },
+    { label: 'Build strength', category: 'Strength' },
+    { label: 'Improve flexibility', category: 'Mobility' },
+    { label: 'Learn fighting', category: 'Combat' },
+    { label: 'Dance', category: 'Dance' }
+  ];
+  const $goals = $('<div>', { class: 'd-flex flex-wrap gap-2 mb-3', role: 'group', 'aria-label': 'Choose a training goal' });
+  goals.forEach((goal) => {
+    $goals.append($('<button>', { type: 'button', class: 'btn btn-outline-danger btn-sm', text: goal.label,
+      'aria-pressed': String(goal.category === '') }).attr('data-goal-category', goal.category));
+  });
+  $controls.append($('<p>', { class: 'mb-2', text: 'Choose your training goal' }), $goals);
+  $controls.append($resetFilters);
   $priceSection.find('.table-responsive').before($toggleFilters, $controls);
   const $empty = $('<p>', { id: 'program-empty', class: 'text-danger mt-3 hidden', role: 'status',
     text: 'No programs match these filters. Reset filters to see all nine.' });
@@ -54,17 +54,14 @@ $(function () {
       $action
     );
   }
-  function matchingPrograms(chosenCategory, order) {
+  function matchingPrograms(chosenCategory) {
     const matches = programs.filter((program) => chosenCategory === '' || program.category === chosenCategory);
-    if (order === 'name') matches.sort((a, b) => a.name.localeCompare(b.name));
-    if (order === 'category') matches.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
     return matches;
   }
   function renderCatalogue() {
-    const matches = matchingPrograms($category.val(), $sort.val());
+    const matches = matchingPrograms($category.val());
     $tableBody.empty();
     matches.forEach((program) => $tableBody.append(renderProgramRow(program)));
-    $count.text(matches.length + ' of ' + programs.length + ' programs shown.');
     $empty.toggleClass('hidden', matches.length !== 0);
     return matches.length;
   }
@@ -73,18 +70,14 @@ $(function () {
   const $cartLines = $('<div>', { id: 'cart-lines', 'aria-live': 'polite' });
   const $cartTotal = $('<p>', { id: 'cart-total', class: 'fw-bold mt-3', role: 'status' });
   const $clear = $('<button>', { id: 'cart-clear', type: 'button', class: 'btn btn-outline-danger', text: 'Clear plan' });
-  const $finish = $('<button>', { id: 'cart-finish', type: 'button', class: 'btn btn-danger', text: 'Create demo summary' });
   const $feedback = $('<p>', { id: 'cart-feedback', class: 'mt-3', role: 'status' });
-  const $confirmation = $('<p>', { id: 'cart-confirmation', class: 'success hidden', role: 'status' });
-  const $next = $('<a>', { id: 'cart-next', class: 'btn btn-outline-danger hidden',
-    href: 'booking.html#booking-service', text: 'Plan the first selected program' });
   const $note = $('<p>', { class: 'small' });
   $note.html('<strong>Indicative prices only.</strong> This is a demonstration estimate, not a purchase or reservation.');
   $cartPanel.append(
     $('<h3>', { class: 'h4 text-danger', text: 'Session estimate' }),
     $note, $cartLines, $cartTotal,
-    $('<div>', { class: 'd-flex flex-wrap gap-2' }).append($clear, $finish),
-    $feedback, $confirmation, $next
+    $('<div>', { class: 'd-flex flex-wrap gap-2' }).append($clear),
+    $feedback
   );
   $results.append($cartPanel);
 
@@ -112,6 +105,8 @@ $(function () {
     lines.forEach(([id, quantity]) => {
       const program = programs.find((item) => item.id === id);
       const $buttons = $('<div>', { class: 'd-flex flex-wrap gap-1' }).append(
+        $('<input>', { type: 'number', class: 'form-control form-control-sm w-auto', min: '1', max: '20', step: '1', value: quantity,
+          'aria-label': 'Sessions for ' + program.name }).attr('data-cart-quantity', id),
         cartButton('−', 'decrease', program),
         cartButton('+', 'increase', program),
         cartButton('Remove', 'remove', program)
@@ -125,14 +120,7 @@ $(function () {
     $cartTotal.text(totals.quantity + ' session' + (totals.quantity === 1 ? '' : 's') +
       ' · estimated total ' + money(totals.price));
     $clear.prop('disabled', totals.quantity === 0);
-    $finish.prop('disabled', totals.quantity === 0);
     return totals;
-  }
-  function hideConfirmation() {
-    $confirmation.stop(true, true).fadeOut(120, function () {
-      $confirmation.addClass('hidden');
-    });
-    $next.addClass('hidden');
   }
   function changeCart(id, action) {
     if (!programs.some((program) => program.id === id)) return false;
@@ -142,8 +130,6 @@ $(function () {
       if (quantity <= 1) cart.delete(id); else cart.set(id, quantity - 1);
     }
     if (action === 'remove') cart.delete(id);
-    currentReference = '';
-    hideConfirmation();
     $feedback.text(quantity === 20 && (action === 'increase' || action === 'add')
       ? 'The estimate is limited to 20 sessions per program.'
       : action === 'remove' ? 'Program removed from the estimate.' : 'Estimate updated.');
@@ -151,10 +137,18 @@ $(function () {
     return true;
   }
 
-  $category.on('change', renderCatalogue);
-  $sort.on('change', renderCatalogue);
+  function updateGoalSelection() {
+    $goals.find('button').each(function () {
+      const selected = $(this).attr('data-goal-category') === $category.val();
+      $(this).toggleClass('active', selected).attr('aria-pressed', String(selected));
+    });
+  }
+  $goals.on('click', 'button[data-goal-category]', function () {
+    $category.val($(this).attr('data-goal-category')).trigger('change');
+  });
+  $category.on('change', function () { updateGoalSelection(); renderCatalogue(); });
   $resetFilters.on('click', function () {
-    $category.val(''); $sort.val('default'); renderCatalogue(); $category.trigger('focus');
+    $category.val(''); updateGoalSelection(); renderCatalogue(); $goals.find('button').first().trigger('focus');
   });
   $toggleFilters.on('click', function () {
     $controls.stop(true, true).slideToggle(180, function () {
@@ -173,25 +167,26 @@ $(function () {
   $cartLines.on('click', 'button[data-cart-action]', function () {
     changeCart($(this).attr('data-program'), $(this).attr('data-cart-action'));
   });
+  $cartLines.on('change', 'input[data-cart-quantity]', function () {
+    const id = $(this).attr('data-cart-quantity');
+    const raw = String($(this).val()).trim();
+    const quantity = Number(raw);
+    if (!/^\d+$/.test(raw) || quantity < 1 || quantity > 20) {
+      $(this).val(cart.get(id));
+      $feedback.text('Enter a whole number from 1 to 20 sessions.');
+      return;
+    }
+    cart.set(id, quantity);
+    $feedback.text('Estimate updated.');
+    renderCart();
+    $cartLines.find('input[data-cart-quantity]').filter(function () { return $(this).attr('data-cart-quantity') === id; }).trigger('focus');
+  });
   $clear.on('click', function () {
-    cart.clear(); currentReference = ''; hideConfirmation();
+    cart.clear();
     $feedback.text('Estimate cleared.'); renderCart();
   });
-  $finish.on('click', function () {
-    const totals = calculateCart([...cart.entries()]);
-    if (totals.quantity === 0) return;
-    if (currentReference === '') currentReference = referenceNumber();
-    const firstProgram = $cartLines.find('[data-cart-program]').filter(':first').attr('data-cart-program');
-    saveDraft({ ...readDraft(), service: firstProgram });
-    $next.attr('href', 'booking.html?service=' + encodeURIComponent(firstProgram) + '#booking-service');
-    $confirmation.text(currentReference + ': demo estimate for ' + totals.quantity + ' session' +
-      (totals.quantity === 1 ? '' : 's') + ', ' + money(totals.price) +
-      '. Nothing was ordered, booked or paid for.');
-    $confirmation.removeClass('hidden').hide().fadeIn(220);
-    $next.removeClass('hidden');
-    $feedback.text('Choose the link below to plan the first selected program.');
-  });
 
+  updateGoalSelection();
   renderCatalogue();
   renderCart();
 });

@@ -1,36 +1,43 @@
-window.Experience.jqueryReady.then(() => $(function () {
+(() => {
   'use strict';
-  const $previews = $('#gallery-grid .gallery-preview');
-  const $dialog = $('#gallery-modal');
-  const $image = $('#modal-image');
-  const $caption = $('#modal-caption');
+  const previews = Array.from(document.querySelectorAll('#gallery-grid .gallery-preview'));
+  const dialog = document.getElementById('gallery-modal');
+  const image = document.getElementById('modal-image');
+  const caption = document.getElementById('modal-caption');
+  const status = document.createElement('p');
+  status.className = 'mt-3';
+  status.setAttribute('role', 'status');
+  status.textContent = `${previews.length} club photographs. Select one to preview, then use Previous or Next.`;
+  document.getElementById('gallery-results').append(status);
   let current = 0;
-  let $opener = null;
-
-  $previews.prop('disabled', false);
-  const $galleryStatus = $('<p>', { class: 'mt-3', role: 'status',
-    text: `${$previews.length} club photographs. Select one to preview, then use Previous or Next.` });
-  $('#gallery-results').append($galleryStatus);
+  let opener = null;
 
   function showPhoto(index) {
-    current = (index + $previews.length) % $previews.length;
-    const $button = $previews.eq(current);
-    $image.attr('src', $button.attr('data-image'))
-      .attr('alt', $button.find('img').attr('alt'));
-    $caption.text(`${$button.closest('article').find('h3').text()} · ${current + 1} of ${$previews.length}`);
-    $galleryStatus.text(`Viewing photograph ${current + 1} of ${$previews.length}.`);
+    if (!previews.length) return;
+    current = (index + previews.length) % previews.length;
+    const button = previews[current];
+    image.src = button.dataset.image;
+    image.alt = button.querySelector('img').alt;
+    caption.textContent = `${button.closest('article').querySelector('h3').textContent} · ${current + 1} of ${previews.length}`;
+    status.textContent = `Viewing photograph ${current + 1} of ${previews.length}.`;
   }
 
-  $previews.on('click', function () {
-    $opener = $(this);
-    showPhoto($previews.index(this));
-    $dialog[0].showModal();
+  previews.forEach((button, index) => {
+    button.disabled = false;
+    button.addEventListener('click', () => {
+      opener = button;
+      showPhoto(index);
+      dialog.showModal();
+    });
   });
-  $('#previous-image-btn').on('click', function () { showPhoto(current - 1); });
-  $('#next-image-btn').on('click', function () { showPhoto(current + 1); });
-  $dialog.on('keydown', function (event) {
+  if (!previews.length) status.textContent = 'No club photographs are available yet.';
+  document.getElementById('previous-image-btn').addEventListener('click', () => showPhoto(current - 1));
+  document.getElementById('next-image-btn').addEventListener('click', () => showPhoto(current + 1));
+  dialog.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') { event.preventDefault(); showPhoto(current - 1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); showPhoto(current + 1); }
+    if (event.key === 'Home') { event.preventDefault(); showPhoto(0); }
+    if (event.key === 'End') { event.preventDefault(); showPhoto(previews.length - 1); }
   });
-  $dialog.on('close', function () { if ($opener) $opener.trigger('focus'); });
-})).catch(() => {});
+  dialog.addEventListener('close', () => { if (opener) opener.focus(); });
+})();
