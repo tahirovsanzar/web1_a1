@@ -16,20 +16,28 @@ $(function () {
   const $summary = $('#contact-summary');
   const $success = $('#contact-success');
   const reviews = [];
+  const membershipPreviews = [];
   let lastFeedbackSignature = '';
 
   const $phoneWrapper = $('<div>', { class: 'mb-3' });
   const $phone = $('<input>', { id: 'contact-phone', name: 'phone', type: 'tel',
-    class: 'form-control', autocomplete: 'tel', placeholder: '+7 700 123 45 67',
+    class: 'form-control', autocomplete: 'tel-national', placeholder: '00 123 45 67', inputmode: 'numeric', maxlength: '12',
     'aria-describedby': 'contact-phone-error' }).prop('required', true);
+  const $phoneGroup = $('<div>', { class: 'input-group' }).append(
+    $('<span>', { class: 'input-group-text', text: '+7 7' }), $phone
+  );
   const $phoneError = $('<p>', { id: 'contact-phone-error', class: 'error hidden small mt-1',
     text: 'Enter a Kazakhstan phone number, for example +7 700 123 45 67.' });
   $phoneWrapper.append(
     $('<label>', { class: 'form-label text-light', for: 'contact-phone', text: 'Phone Number' }),
-    $phone, $phoneError
+    $phoneGroup, $phoneError
   );
   $fields.email.parent().after($phoneWrapper);
   $fields.phone = $phone;
+  $phone.on('input', function () {
+    const digits = String($phone.val() || '').replace(/\D/g, '').slice(0, 9);
+    $phone.val([digits.slice(0, 2), digits.slice(2, 5), digits.slice(5, 7), digits.slice(7, 9)].filter(Boolean).join(' '));
+  });
 
   const $ratingWrapper = $('<div>', { class: 'mb-3 hidden' });
   const $rating = $('<select>', { id: 'contact-rating', name: 'rating', class: 'form-select',
@@ -58,6 +66,31 @@ $(function () {
     $reviewList
   );
   $form.after($reviewSection);
+  const $membershipSection = $('<section>', { id: 'membership-previews', class: 'mt-5' });
+  const $membershipList = $('<div>', { class: 'row g-3', 'aria-live': 'polite' });
+  $membershipSection.append(
+    $('<h2>', { class: 'h4 text-danger', text: 'Membership inquiry previews' }),
+    $('<p>', { text: 'Previews remain on this page only. No inquiry is sent to the club.' }),
+    $membershipList
+  );
+  $reviewSection.after($membershipSection);
+
+  function renderMembershipPreviews() {
+    $membershipList.empty();
+    if (!membershipPreviews.length) {
+      $membershipList.append($('<p>', { class: 'text-danger', text: 'No membership inquiry previews yet.' }));
+      return;
+    }
+    membershipPreviews.forEach((preview, index) => {
+      const $card = $('<article>', { class: 'card bg-black border-danger h-100 p-3' }).append(
+        $('<h3>', { class: 'h5 text-danger', text: 'Membership prices inquiry' }),
+        $('<p>', { class: 'small', text: 'Anonymous preview · ' + preview.date }),
+        $('<button>', { type: 'button', class: 'btn btn-outline-danger btn-sm mt-auto', text: 'Remove preview' })
+          .attr('data-remove-membership', String(index))
+      );
+      $membershipList.append($('<div>', { class: 'col-12 col-md-6' }).append($card));
+    });
+  }
 
   function showSubjectFields(animate) {
     const feedback = $fields.subject.val() === 'feedback';
@@ -85,8 +118,8 @@ $(function () {
     if (key === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Enter a valid email address.';
     if (key === 'phone') {
       const digits = value.replace(/\D/g, '');
-      return /^[+()\d\s-]+$/.test(value) && /^[78]\d{10}$/.test(digits)
-        ? '' : 'Enter a Kazakhstan phone number with 11 digits.';
+      return /^[\d\s]+$/.test(value) && /^\d{9}$/.test(digits)
+        ? '' : 'Enter the remaining 9 digits after +7 7.';
     }
     if (key === 'subject') return ['membership', 'feedback', 'other'].includes(value) ? '' : 'Choose a subject.';
     if (key === 'visits') return value === '' || ['0', '1', '2-5', '6+'].includes(value) ? '' : 'Choose a listed visit count.';
@@ -110,9 +143,8 @@ $(function () {
   }
   function renderReview(review, index) {
     const $card = $('<article>', { class: 'card bg-black border-danger h-100 p-3' }).append(
-      $('<h3>', { class: 'h5 text-danger', text: review.name }),
+      $('<h3>', { class: 'h5 text-danger', text: 'Anonymous feedback' }),
       $('<p>', { class: 'small', text: 'Feedback · ' + review.rating + '/5 · ' + review.date }),
-      $('<p>', { text: review.message }),
       $('<button>', { type: 'button', class: 'btn btn-outline-danger btn-sm mt-auto',
         text: 'Remove preview' }).attr('data-remove-review', String(index))
     );
@@ -128,17 +160,10 @@ $(function () {
     reviews.forEach((review, index) => $reviewList.append(renderReview(review, index)));
   }
   function renderSummary() {
-    const lines = [
-      'Name: ' + $fields.name.val().trim(),
-      'Email: ' + $fields.email.val().trim(),
-      'Phone: ' + $fields.phone.val().trim(),
-      'Subject: ' + $fields.subject.find('option:selected').text(),
-      'Message: ' + $fields.message.val().trim()
-    ];
+    const lines = ['Subject: ' + $fields.subject.find('option:selected').text()];
     if ($fields.subject.val() === 'feedback') {
-      lines.splice(4, 0, 'Rating: ' + $rating.val() + '/5');
-      if ($fields.visits.val() !== '') lines.splice(5, 0,
-        'Visits: ' + $fields.visits.find('option:selected').text());
+      lines.push('Rating: ' + $rating.val() + '/5');
+      if ($fields.visits.val()) lines.push('Visits: ' + $fields.visits.find('option:selected').text());
     }
     $summary.empty();
     lines.forEach((line) => $summary.append($('<p>', { class: 'mb-1', text: line })));
@@ -178,11 +203,14 @@ $(function () {
     if ($fields.subject.val() === 'feedback') {
       const signature = [$fields.name.val().trim(), $rating.val(), $fields.message.val().trim()].join('|');
       if (signature !== lastFeedbackSignature) {
-        reviews.push({ name: $fields.name.val().trim(), message: $fields.message.val().trim(),
-          rating: $rating.val(), date: new Date().toLocaleString('en-GB') });
+        reviews.push({ rating: $rating.val(), date: new Date().toLocaleString('en-GB') });
         lastFeedbackSignature = signature;
         renderReviews();
       }
+    }
+    if ($fields.subject.val() === 'membership') {
+      membershipPreviews.push({ date: new Date().toLocaleString('en-GB') });
+      renderMembershipPreviews();
     }
     $success.removeClass('hidden').hide().fadeIn(220);
     $form.trigger('reset');
@@ -198,6 +226,11 @@ $(function () {
     renderReviews();
     $status.text('Feedback preview removed. No public review was affected.');
   });
+  $membershipList.on('click', 'button[data-remove-membership]', function () {
+    membershipPreviews.splice(Number($(this).attr('data-remove-membership')), 1);
+    renderMembershipPreviews();
+  });
   showSubjectFields(false);
   renderReviews();
+  renderMembershipPreviews();
 });

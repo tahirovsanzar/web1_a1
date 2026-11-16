@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root { --visual-red: #ec3044; --visual-ink: #0c0e10; --visual-muted: #b9bdc3; }
+body { font-family: Manrope, Arial, sans-serif; background: #101214 !important; color: #f5f5f5; letter-spacing: 0; }
+a, a:hover, a:focus, a:active, .home-link:hover { text-decoration: none; }
+h1, h2, h3, h4, .navbar-brand { font-family: "Barlow Condensed", Impact, sans-serif; letter-spacing: .025em; }
+h1 { letter-spacing: -.015em; }
+.text-danger { color: #ff5262 !important; }
+.navbar { background: #0a0b0d !important; padding-block: 1rem; border-color: #303035 !important; }
+.navbar-brand { font-size: 1.35rem; letter-spacing: .04em; }
+.site-menu .nav-link { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.site-menu .nav-link, .site-menu .nav-link:hover, .site-menu .nav-link:focus { text-decoration: none; }
+.site-menu .active { border-bottom: 0; }
+main.container { max-width: 1320px; }
+main > h1, main > header h1 { font-size: clamp(3rem, 6vw, 5.8rem); line-height: .95; }
+.btn { border-radius: .2rem; font-weight: 700; font-size: .85rem; padding: .75rem 1.1rem; text-decoration: none; transition: transform .18s ease, background-color .18s ease, border-color .18s ease; }
+.btn:hover, .btn:focus, .btn:active { text-decoration: none; }
+.btn:hover { transform: scale(1.025); }
+.btn-danger { background: #db263b; border-color: #db263b; }
+.btn-outline-danger { color: #ff6674; border-color: #e73a4c; }
+.btn-outline-danger:hover { color: white; background: #d6263b; border-color: #d6263b; }
+.card, #locations article, #contact-details, .result-panel { background: #181b1e !important; border-color: #39383c !important; border-radius: .3rem !important; overflow: hidden; }
+#locations article.selected, .trainer-card.selected { outline: none; }
+#locations article:has(:focus-visible), .trainer-card:has(:focus-visible) { outline: 3px solid #dc3545; outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) {
+  #locations article:hover, .trainer-card:hover { outline: 3px solid #dc3545; outline-offset: 2px; }
+}
+.card-body { padding: 1.5rem; }
+.card-title { font-size: 1.45rem; }
+.page-intro { background: #1b1e21; border-left: 3px solid var(--visual-red); }
+.card-img-top { height: 280px; transition: transform .3s ease; }
+.gallery-preview { overflow: hidden; }
+.gallery-preview:hover img { transform: scale(1.04); }
+.trainer-card img { width: 100%; height: 330px; margin: 0; border-radius: 0; object-fit: cover; object-position: center 22%; }
+.trainer-card:hover { border-color: #ec3044; }
+footer { background: #08090a !important; border-color: #333 !important; color: #bdc0c4; font-size: .85rem; }
+footer a { text-decoration: none; }
+body:has(#home-highlights) main.container { max-width: 100%; padding-top: 0 !important; }
+.main-article { position: relative; min-height: 610px; display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 6vw, 6rem) max(1.5rem, calc((100vw - 1270px)/2)); background: linear-gradient(90deg, rgba(7,9,11,.96) 0%, rgba(7,9,11,.84) 48%, rgba(7,9,11,.23) 100%), url('../img/img_1.png') center 48% / cover; }
+.main-article h1 { max-width: 850px; font-size: clamp(3.8rem, 8vw, 8rem); line-height: .87; color: #fff !important; }
+.main-article h1::before { content: 'ASTANA  /  FITNESS & WELLNESS'; display: block; margin-bottom: 1.5rem; font: 700 .72rem Manrope, sans-serif; letter-spacing: .2em; color: #ff5363; }
+.home-intro { max-width: 710px; padding: 0 !important; background: transparent; }
+.home-intro h2 { font-size: 1.5rem; }
+.home-intro .lead { font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.7; }
+.home-intro p:not(.lead) { color: #c6c9cc; font-size: .83rem; line-height: 1.7; }
+.home-divider { border-color: #697077; max-width: 100px; }
+#home-highlights { max-width: 1270px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+#home-highlights > h2 { font-size: 2.7rem; }
+.home-highlight { min-height: 330px; padding: 1.7rem; border: 1px solid #383a3e; background: linear-gradient(0deg, rgba(10,11,12,.98), rgba(10,11,12,.60)), url('../img/gym-floor.jpg') center / cover; }
+#home-highlights .col-md-4:nth-child(2) .home-highlight { background-image: linear-gradient(0deg, rgba(10,11,12,.98), rgba(10,11,12,.58)), url('../img/img_3.png'); }
+#home-highlights .col-md-4:nth-child(3) .home-highlight { background-image: linear-gradient(0deg, rgba(10,11,12,.98), rgba(10,11,12,.60)), url('../img/izzkussin.jpg'); }
+.home-highlight h3 { margin-top: auto; font-size: 1.8rem; }
+.home-highlight p { font-size: .86rem; line-height: 1.7; color: #e0e0e0; }
+.home-link { color: #ff7782; }
+#services-intro { padding: clamp(2rem, 5vw, 5rem); background: linear-gradient(90deg, rgba(10,11,12,.95), rgba(10,11,12,.6)), url('../img/img.png') center 45% / cover; }
+#services-intro p { max-width: 680px; }
+.first-week-card { position: relative; background: linear-gradient(100deg, rgba(14,16,18,.97), rgba(14,16,18,.8)), url('../img/gym-floor.jpg') center / cover !important; }
+.first-week-card .card-body { padding: clamp(1.5rem, 3vw, 2.25rem); }
+#services-grid > .col-lg-6 .card-body { padding: clamp(1.5rem, 3vw, 2.25rem); }
+.first-week-card .card-title { font-size: 1.8rem; }
+.first-week-steps { list-style: none; counter-reset: first-week; padding: 0; display: grid; gap: .75rem; }
+.first-week-steps li { counter-increment: first-week; display: flex; align-items: center; gap: 1rem; padding: .85rem 1rem; margin: 0 !important; background: rgba(20,22,25,.76); border: 1px solid #414147; line-height: 1.45; }
+.first-week-steps li::before { content: '0' counter(first-week); flex: 0 0 2.4rem; color: #ff5262; font: 700 1.35rem 'Barlow Condensed', sans-serif; }
+.program-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; counter-reset: program; }
+.program-tiles li { min-width: 0; counter-increment: program; }
+.program-tiles a { position: relative; display: flex; align-items: end; min-height: 190px; padding: 1.4rem; color: #fff !important; text-decoration: none; font: 700 1.55rem/1 "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .04em; border: 1px solid #48484b; background: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.16)), url('../img/img_3.png') center / cover; transition: border-color .2s, transform .2s; }
+.program-tiles a::before { content: '0' counter(program); position: absolute; top: 1rem; left: 1.4rem; color: #ff6674; font: 700 .75rem Manrope, sans-serif; letter-spacing: .12em; }
+.program-tiles a::after { content: '↗'; position: absolute; right: 1.2rem; bottom: 1.2rem; color: #ff5262; }
+.program-tiles a[data-service="full-body"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/14604709.jpg'); }
+.program-tiles a[data-service="fight"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/13460168.jpg'); }
+.program-tiles a[data-service="yoga"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/3931001.jpg'); }
+.program-tiles a[data-service="healthy-posture"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/14591593.jpg'); }
+.program-tiles a[data-service="strip-plastic"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/8957645.jpg'); }
+.program-tiles a[data-service="workout-school"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/867453.jpg'); }
+.program-tiles a[data-service="stretching"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/4164767.jpg'); }
+.program-tiles a[data-service="strength-flexibility"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/3823141.jpg'); }
+.program-tiles a[data-service="functional"] { background-image: linear-gradient(0deg, rgba(8,9,11,.95), rgba(8,9,11,.18)), url('../img/programs/4587371.jpg'); }
+.program-tiles a:hover, .program-tiles a:focus-visible { border-color: #ec3044; transform: translateY(-3px); text-decoration: none; }
+@media (max-width: 767px) { .program-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } .program-tiles a { min-height: 150px; font-size: 1.3rem; padding: 1rem; } .program-tiles a::before { left: 1rem; } }
+@media (max-width: 360px) { .program-tiles { grid-template-columns: 1fr; } }
+#locations article { border-top: 3px solid #db263b !important; }
+#locations article::before { content: ''; display: block; height: 260px; margin: -1.5rem -1.5rem 1.5rem; background: linear-gradient(0deg, rgba(0,0,0,.45), transparent), url('../img/gym-floor.jpg') center / cover; }
+#locations .col-lg-6:nth-child(2) article::before { background-image: linear-gradient(0deg, rgba(0,0,0,.45), transparent), url('../img/studio.jpg'); }
+body:has(#locations) main > header { padding: clamp(2rem, 5vw, 5rem); min-height: 320px; display: flex; flex-direction: column; justify-content: end; background: linear-gradient(90deg, rgba(8,9,11,.95), rgba(8,9,11,.35)), url('../img/img_2.png') center / cover; }
+body:has(#locations) main > header p { max-width: 700px; }
+#locations article h3 { font-size: 2rem; }
+#locations article p { line-height: 1.7; color: #d8d8d8; }
+#visit-tips > div, #schedule > div { border-color: #454349 !important; }
+#visit-tips > div { background: linear-gradient(90deg, rgba(10,11,12,.95), rgba(10,11,12,.75)), url('../img/img_3.png') center / cover !important; }
+#visit-tips li { padding: .45rem 0; line-height: 1.6; }
+#schedule dl { border-top: 1px solid #515159; padding-top: 1rem; row-gap: .7rem; }
+#contact-details { padding: 2rem !important; background: linear-gradient(90deg, rgba(14,15,17,.96), rgba(14,15,17,.78)), url('../img/gym-floor.jpg') center / cover !important; }
+#trainer-gallery .card-img-top { height: 320px; object-position: center 22%; }
+body:has(#gallery-grid) main > div:first-child { padding: clamp(2rem, 5vw, 4rem); margin-bottom: 2.5rem; background: linear-gradient(90deg, rgba(8,9,11,.96), rgba(8,9,11,.55)), url('../img/img_1.png') center / cover; }
+body:has(#gallery-grid) main > div:first-child .page-intro { background: rgba(16,18,20,.72); }
+body:has(#trainers-grid) main > section:first-of-type { padding: clamp(2rem, 5vw, 4rem); background: linear-gradient(90deg, rgba(8,9,11,.96), rgba(8,9,11,.58)), url('../img/izzkussin.jpg') center 30% / cover; }
+body:has(#trainers-grid) main > section:first-of-type .page-intro { background: rgba(16,18,20,.75); }
+body:has(#booking-form) main > section { border-color: #3d3b40 !important; background: linear-gradient(100deg, rgba(10,11,12,.97), rgba(10,11,12,.88)), url('../img/img_3.png') center / cover !important; }
+body:has(#contact-form) main > .row > div > .page-intro { padding: 3.5rem 2rem; border-left: 0; background: linear-gradient(90deg, rgba(8,9,11,.94), rgba(8,9,11,.65)), url('../img/gym-floor.jpg') center / cover; }
+#price-list { background: #181b1e; border: 1px solid #38383c; padding: clamp(1.25rem, 3vw, 2.5rem); }
+#price-list h2 { font-size: 2.2rem; }
+#price-list table { min-width: 620px; }
+#price-list table th, #price-list table td { vertical-align: middle; }
+#price-list table .btn { white-space: nowrap; }
+#booking-confirmation, #contact-response { background: #1e2125 !important; border-left: 3px solid #ec3044 !important; }
+#feedback-previews article, #membership-previews article { border-left: 3px solid #ec3044 !important; }
+#booking-form, #contact-form { background: #16191c !important; border-color: #3c3b3e !important; }
+.form-control, .form-select { min-height: 45px; }
+@media (max-width: 767px) {
+  .main-article { min-height: 570px; background-position: 58% center; padding: 4rem 1.5rem; }
+  .main-article h1 { font-size: clamp(3.6rem, 14vw, 5rem); }
+  .home-highlight { min-height: 270px; }
+  .trainer-card img { height: 320px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }

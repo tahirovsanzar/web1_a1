@@ -1,13 +1,13 @@
 (() => {
   'use strict';
-  const previews = Array.from(document.querySelectorAll('#gallery-grid .gallery-preview'));
+  const previews = Array.from(document.querySelectorAll('#gallery-grid .gallery-preview, #inspiration-gallery .gallery-preview, #trainer-gallery .gallery-preview'));
   const dialog = document.getElementById('gallery-modal');
   const image = document.getElementById('modal-image');
   const caption = document.getElementById('modal-caption');
   const status = document.createElement('p');
   status.className = 'mt-3';
   status.setAttribute('role', 'status');
-  status.textContent = `${previews.length} club photographs. Select one to preview, then use Previous or Next.`;
+  status.textContent = `${previews.length} club photographs. Select one to preview; use arrow keys to browse.`;
   document.getElementById('gallery-results').append(status);
   let current = 0;
   let opener = null;
@@ -31,8 +31,11 @@
     });
   });
   if (!previews.length) status.textContent = 'No club photographs are available yet.';
-  document.getElementById('previous-image-btn').addEventListener('click', () => showPhoto(current - 1));
-  document.getElementById('next-image-btn').addEventListener('click', () => showPhoto(current + 1));
+  dialog.addEventListener('click', (event) => {
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right ||
+        event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+  });
   dialog.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') { event.preventDefault(); showPhoto(current - 1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); showPhoto(current + 1); }

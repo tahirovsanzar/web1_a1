@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/sanzharbek.css">
+  <link rel="stylesheet" href="css/visual.css">
 </head>
 <body class="bg-dark text-light">
 
@@ -27,7 +28,7 @@
           <li class="nav-item"><a id="nav-gallery" class="nav-link active text-danger" aria-current="page" href="gallery.html">Gallery</a></li>
           <li class="nav-item"><a id="nav-services" class="nav-link text-light" href="services.html">Services</a></li>
           <li class="nav-item"><a id="nav-booking" class="nav-link text-light" href="booking.html">Booking</a></li>
-          <li class="nav-item"><a id="nav-trainers" class="nav-link text-light" href="trainers.html">Training</a></li>
+          <li class="nav-item"><a id="nav-trainers" class="nav-link text-light" href="trainers.html">Coaches</a></li>
           <li class="nav-item"><a id="nav-contact" class="nav-link text-light" href="contact.html">Contact</a></li>
         </ul>
       </details>
@@ -100,6 +101,22 @@
       </div>
     </article>
   </div>
+  <h2 class="h3 text-danger mt-5 mb-3">Training inspiration</h2>
+  <p class="text-light mb-4">Illustrative fitness photos; these are not photos of the club.</p>
+  <div class="row g-4 justify-content-center" id="inspiration-gallery">
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/programs/12890941.jpg" aria-label="Preview strength training" aria-controls="gallery-modal"><img src="img/programs/12890941.jpg" class="card-img-top" alt="Man lifting weights in a gym" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Strength training</h3></div></div></article>
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/programs/4401634.jpg" aria-label="Preview boxing training" aria-controls="gallery-modal"><img src="img/programs/4401634.jpg" class="card-img-top" alt="Man boxing in a gym" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Boxing training</h3></div></div></article>
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/programs/18187617.jpg" aria-label="Preview coached workout" aria-controls="gallery-modal"><img src="img/programs/18187617.jpg" class="card-img-top" alt="Man lifting weights with a trainer in a gym" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Coached workout</h3></div></div></article>
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/programs/4164458.jpg" aria-label="Preview gym stretching" aria-controls="gallery-modal"><img src="img/programs/4164458.jpg" class="card-img-top" alt="Man stretching in a gym" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Gym stretching</h3></div></div></article>
+  </div>
+  <h2 class="h3 text-danger mt-5 mb-4">Meet the trainers</h2>
+  <div class="row g-4 justify-content-center" id="trainer-gallery">
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/sokolovskiy_an.jpg" aria-label="Preview Sokolovskiy" aria-controls="gallery-modal"><img src="img/sokolovskiy_an.jpg" class="card-img-top" alt="Trainer Sokolovskiy" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Sokolovskiy</h3></div></div></article>
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/sama.vse.znau.jpg" aria-label="Preview Sama" aria-controls="gallery-modal"><img src="img/sama.vse.znau.jpg" class="card-img-top" alt="Trainer Sama" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Sama</h3></div></div></article>
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/anna.trener.jpg" aria-label="Preview Anna" aria-controls="gallery-modal"><img src="img/anna.trener.jpg" class="card-img-top" alt="Trainer Anna" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Anna</h3></div></div></article>
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/ulzhan_abeu.jpg" aria-label="Preview Ulzhan" aria-controls="gallery-modal"><img src="img/ulzhan_abeu.jpg" class="card-img-top" alt="Trainer Ulzhan" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Ulzhan</h3></div></div></article>
+    <article class="col-12 col-md-6 col-lg-4"><div class="card bg-black h-100"><button type="button" class="gallery-preview" data-image="img/izzkussin.jpg" aria-label="Preview Iskazzzin" aria-controls="gallery-modal"><img src="img/izzkussin.jpg" class="card-img-top" alt="Trainer Iskazzzin" loading="lazy"></button><div class="card-body"><h3 class="h5 text-danger">Iskazzzin</h3></div></div></article>
+  </div>
   <div id="gallery-results" aria-live="polite"></div>
   <dialog id="gallery-modal" class="bg-black text-light border border-danger rounded p-3" aria-labelledby="modal-title">
     <h2 id="modal-title" class="h4 text-danger">Photo preview</h2>
@@ -107,11 +124,6 @@
       <img id="modal-image" src="img/gym-floor.jpg" alt="Club reception" class="img-fluid gallery-full-image rounded">
       <figcaption id="modal-caption" class="mt-2">Club reception</figcaption>
     </figure>
-    <div class="d-flex flex-wrap gap-2">
-      <button id="previous-image-btn" type="button" class="btn btn-outline-danger">Previous photo</button>
-      <button id="next-image-btn" type="button" class="btn btn-outline-danger">Next photo</button>
-      <form method="dialog"><button id="close-modal-btn" type="submit" class="btn btn-danger">Close preview</button></form>
-    </div>
     <div id="gallery-errors" class="error" role="alert"></div>
   </dialog>
   <p class="mt-4">Explore the <a href="services.html" class="text-danger">available activities</a> or <a href="booking.html" class="text-danger">plan a visit</a>.</p>

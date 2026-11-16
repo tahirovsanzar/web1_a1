@@ -14,6 +14,29 @@ window.Experience.jqueryReady.then(() => $(function () {
   const $success = $('#booking-success');
   let lastPlanSignature = '';
   let lastReference = '';
+  const $planPreviews = $('<section>', { class: 'mt-4', 'aria-live': 'polite' }).append(
+    $('<h2>', { class: 'h4 text-danger', text: 'Session plan previews' })
+  );
+  $form.after($planPreviews);
+
+  const $timeInput = $fields.time;
+  const $timeDisplay = $('<input>', { id: 'booking-time', name: 'time', type: 'text',
+    class: 'form-control', readonly: true, placeholder: 'HH:MM', required: true,
+    'aria-describedby': 'booking-time-help booking-time-error', 'aria-expanded': 'false',
+    'aria-controls': 'time-picker' });
+  $timeInput.replaceWith($timeDisplay);
+  $fields.time = $timeDisplay;
+  const $hours = $('<select>', { class: 'form-select', size: 5, 'aria-label': 'Hour' });
+  const $minutes = $('<select>', { class: 'form-select', size: 2, 'aria-label': 'Minute' });
+  const $picker = $('<div>', { id: 'time-picker', class: 'position-absolute bg-white border rounded shadow p-2 d-none',
+    role: 'group', 'aria-label': 'Choose a start time' }).css('z-index', '10');
+  $picker.append($('<div>', { class: 'd-flex gap-2' }).append($hours, $minutes));
+  const $chooseTime = $('<button>', { type: 'button', class: 'btn btn-danger btn-sm w-100 mt-2', text: 'Choose time' });
+  $picker.append($chooseTime);
+  const $openTime = $('<button>', { type: 'button', class: 'btn btn-outline-danger', text: '◷', 'aria-label': 'Choose start time' });
+  $timeDisplay.wrap($('<div>', { class: 'input-group' }));
+  $timeDisplay.after($openTime);
+  $timeDisplay.parent().parent().addClass('position-relative').append($picker);
 
   const $quantity = $('<input>', { id: 'booking-quantity', name: 'participants', type: 'number',
     class: 'form-control', min: '1', max: '6', step: '1', value: '1',
@@ -28,10 +51,16 @@ window.Experience.jqueryReady.then(() => $(function () {
   const $reset = $('<button>', { id: 'booking-reset', type: 'button',
     class: 'btn btn-outline-danger w-100 mt-2', text: 'Clear plan' });
   $('#submit-booking-btn').after($reset);
-  const $specialtyHint = $('<p>', { class: 'form-text text-light' });
-  const $trainerHint = $('<p>', { class: 'form-text text-light' });
-  $fields.service.closest('.mb-3').append($specialtyHint);
-  $fields.trainer.closest('.mb-3').append($trainerHint);
+  const $availability = $('<p>', { class: 'form-text text-light', role: 'status' });
+  $fields.trainer.closest('.mb-3').append($availability);
+
+  function updateAvailability() {
+    const program = findProgram(value('service'));
+    const trainer = selectedTrainer();
+    if (!program || !trainer) { $availability.text(''); return; }
+    const seed = (program.id + trainer.id).split('').reduce((sum, char) => sum + char.charCodeAt(0), 0);
+    $availability.text(`Example availability: approximately ${2 + seed % 5} places. Demo only; confirm actual availability with the club.`);
+  }
 
   function value(key) {
     return String((key === 'quantity' ? $quantity : $fields[key]).val() || '').trim();
@@ -55,10 +84,6 @@ window.Experience.jqueryReady.then(() => $(function () {
       $('<option>', { value: program.id, text: program.name })
     ));
     if (available.some((program) => program.id === previous)) $fields.service.val(previous);
-    const trainer = selectedTrainer();
-    $specialtyHint.text(trainer
-      ? `${trainer.name}: ${available.map((program) => program.name).join(', ')}. Specialties are illustrative; confirm with the club.`
-      : 'Choose a trainer to see their available programs. Specialties are illustrative; confirm with the club.');
     return previous !== '' && value('service') === '';
   }
   function renderTrainerOptions() {
@@ -69,10 +94,6 @@ window.Experience.jqueryReady.then(() => $(function () {
       $('<option>', { value: trainer.id, text: trainer.name })
     ));
     if (available.some((trainer) => trainer.id === previous)) $fields.trainer.val(previous);
-    const program = findProgram(value('service'));
-    $trainerHint.text(program
-      ? `${program.name}: ${available.map((trainer) => trainer.name).join(', ')}. Specialties are illustrative; confirm with the club.`
-      : 'Choose a program to see its available trainers. Specialties are illustrative; confirm with the club.');
     return previous !== 'any' && value('trainer') === 'any';
   }
 
@@ -83,6 +104,60 @@ window.Experience.jqueryReady.then(() => $(function () {
   function timeWindow(date) {
     if (date.getDay() === 0) return null;
     return date.getDay() === 6 ? { start: '09:00', end: '21:30' } : { start: '07:00', end: '22:30' };
+  }
+  function timeToMinutes(time) {
+    const [hours, minutes] = time.split(':').map(Number);
+    return hours * 60 + minutes;
+  }
+  function formatTime(totalMinutes) {
+    const hours = String(Math.floor(totalMinutes / 60)).padStart(2, '0');
+    const minutes = String(totalMinutes % 60).padStart(2, '0');
+    return hours + ':' + minutes;
+  }
+  function availableTimes() {
+    const selectedDate = value('date');
+    const date = localDate(selectedDate);
+    const window = date && timeWindow(date);
+    if (!window || selectedDate < astanaNow().date) return [];
+    const now = astanaNow();
+    const times = [];
+    for (let minutes = timeToMinutes(window.start); minutes <= timeToMinutes(window.end); minutes += 30) {
+      const time = formatTime(minutes);
+      if (selectedDate !== now.date || time > now.time) times.push(time);
+    }
+    return times;
+  }
+  function updateMinutes(times, selectedTime) {
+    const hour = $hours.val();
+    $minutes.empty();
+    times.filter((time) => time.slice(0, 2) === hour).forEach((time) => {
+      $minutes.append($('<option>', { value: time.slice(3), text: time.slice(3) }));
+    });
+    if (selectedTime && selectedTime.slice(0, 2) === hour) $minutes.val(selectedTime.slice(3));
+  }
+  function openTimePicker() {
+    const times = availableTimes();
+    if (!times.length) {
+      $('#booking-time-error').text(value('date') ? 'No available start times for this date.' : 'Choose a date first.').removeClass('hidden');
+      return;
+    }
+    const selectedTime = times.includes(value('time')) ? value('time') : times[0];
+    $hours.empty();
+    [...new Set(times.map((time) => time.slice(0, 2)))].forEach((hour) => {
+      $hours.append($('<option>', { value: hour, text: hour }));
+    });
+    $hours.val(selectedTime.slice(0, 2));
+    updateMinutes(times, selectedTime);
+    $picker.removeClass('d-none');
+    $timeDisplay.attr('aria-expanded', 'true');
+    $hours.trigger('focus');
+  }
+  function closeTimePicker() {
+    $picker.addClass('d-none');
+    $timeDisplay.attr('aria-expanded', 'false');
+  }
+  function selectTime() {
+    if ($hours.val() && $minutes.val()) $timeDisplay.val($hours.val() + ':' + $minutes.val()).trigger('input');
   }
   function checkField(key) {
     const entered = value(key);
@@ -165,15 +240,36 @@ window.Experience.jqueryReady.then(() => $(function () {
   renderTrainerOptions();
   if (['imanbayeva', 'asfendiyarov'].includes(requestedLocation)) $fields.location.val(requestedLocation);
   if (localDate(saved.date || '')) $fields.date.val(saved.date);
-  if (/^\d{2}:\d{2}$/.test(saved.time || '')) $fields.time.val(saved.time);
+  if (/^\d{2}:(00|30)$/.test(saved.time || '')) $fields.time.val(saved.time);
   if (/^[1-6]$/.test(saved.quantity || '')) $quantity.val(saved.quantity);
   $fields.date.attr('min', astanaNow().date);
+  updateAvailability();
   updateSummary();
+
+  $timeDisplay.on('click', openTimePicker).on('keydown', function (event) {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openTimePicker(); }
+  });
+  $openTime.on('click', openTimePicker);
+  $chooseTime.on('click', function () { selectTime(); closeTimePicker(); $timeDisplay.trigger('focus'); });
+  $hours.on('change', function () { updateMinutes(availableTimes()); selectTime(); });
+  $minutes.on('change', selectTime);
+  $minutes.on('click', function () { selectTime(); closeTimePicker(); });
+  $picker.on('keydown', function (event) {
+    if (event.key === 'Escape') { closeTimePicker(); $timeDisplay.trigger('focus'); }
+  });
+  $(document).on('pointerdown', function (event) {
+    if (!$(event.target).closest($picker).length && event.target !== $timeDisplay[0] && event.target !== $openTime[0]) closeTimePicker();
+  });
 
   Object.entries({ ...$fields, quantity: $quantity }).forEach(([key, $field]) => {
     $field.on($field.is('select') ? 'change' : 'input', function () {
+      if (key === 'date') {
+        closeTimePicker();
+        if (value('time') && !availableTimes().includes(value('time'))) $timeDisplay.val('');
+      }
       const programCleared = key === 'trainer' && renderServiceOptions();
       const trainerCleared = (key === 'service' || key === 'trainer') && renderTrainerOptions();
+      if (key === 'service' || key === 'trainer') updateAvailability();
       if (!$('#booking-' + key + '-error').hasClass('hidden')) markField(key);
       if (programCleared && !$('#booking-service-error').hasClass('hidden')) markField('service');
       if (trainerCleared && !$('#booking-trainer-error').hasClass('hidden')) markField('trainer');
@@ -209,12 +305,38 @@ window.Experience.jqueryReady.then(() => $(function () {
     }
     $status.text(`${lastReference}: demonstration request reviewed. No data was sent to a server; no real booking or payment was created.`);
     $success.removeClass('hidden');
-    $('html, body').stop(true).animate({ scrollTop: $('#booking-confirmation').offset().top - 100 }, 200);
-  });
-  $reset.on('click', function () {
+    const $preview = $('<article>', { class: 'card bg-black border-danger p-3 mb-3' }).append(
+      $('<h3>', { class: 'h5 text-danger', text: 'Session plan preview' }),
+      $('<p>', { class: 'small', text: 'Demo only · No reservation created' }),
+      $summary.clone().removeAttr('id').removeAttr('aria-live'),
+      $('<p>', { class: 'small mt-2', text: $total.text() }),
+      $('<button>', { type: 'button', class: 'btn btn-outline-danger', text: 'Remove preview' })
+    );
+    $planPreviews.append($preview);
     $form.trigger('reset');
+    closeTimePicker();
+    $fields.service.val('');
+    $fields.trainer.val('any');
     renderServiceOptions();
     renderTrainerOptions();
+    updateAvailability();
+    $quantity.val('1');
+    Object.entries({ ...$fields, quantity: $quantity }).forEach(([key, $field]) => {
+      $field.removeClass('error success').removeAttr('aria-invalid');
+      $('#booking-' + key + '-error').addClass('hidden');
+    });
+    saveDraft({});
+    lastPlanSignature = '';
+    lastReference = '';
+    $('html, body').stop(true).animate({ scrollTop: $('#booking-confirmation').offset().top - 100 }, 200);
+  });
+  $planPreviews.on('click', 'button', function () { $(this).closest('article').remove(); });
+  $reset.on('click', function () {
+    $form.trigger('reset');
+    closeTimePicker();
+    renderServiceOptions();
+    renderTrainerOptions();
+    updateAvailability();
     Object.entries({ ...$fields, quantity: $quantity }).forEach(([key, $field]) => {
       $field.removeClass('error success').removeAttr('aria-invalid');
       $('#booking-' + key + '-error').addClass('hidden');
